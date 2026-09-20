@@ -1,0 +1,7 @@
+{
+  "python": "3.14.4",
+  "pillow": "12.3.0",
+  "audit_source_sha256": "784b4fb7d7be780c547fb6c93f836896ece79e603ae0832a15df8f38a57b58dc",
+  "raw_manifest_sha256": "49d6e3471d7167cd88726805a426da3bbf2aa02a7096ac8a90ed98c225ca32d3",
+  "raw_unchanged_verified": true
+}

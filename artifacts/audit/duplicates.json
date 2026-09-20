@@ -1,0 +1,131 @@
+{
+  "metadata_rows": [],
+  "case_num": [],
+  "nonempty_case_id": [],
+  "basenames": [],
+  "case_insensitive_paths": [],
+  "case_insensitive_basenames": [],
+  "repeated_references": [
+    {
+      "key": "Fgl/Fgl059.jpg",
+      "members": [
+        {
+          "case_num": "833",
+          "modality": "derm"
+        },
+        {
+          "case_num": "833",
+          "modality": "clinic"
+        }
+      ]
+    },
+    {
+      "key": "Fhl/Fhl002.jpg",
+      "members": [
+        {
+          "case_num": "834",
+          "modality": "derm"
+        },
+        {
+          "case_num": "834",
+          "modality": "clinic"
+        }
+      ]
+    },
+    {
+      "key": "Fhl/Fhl012.jpg",
+      "members": [
+        {
+          "case_num": "839",
+          "modality": "derm"
+        },
+        {
+          "case_num": "839",
+          "modality": "clinic"
+        }
+      ]
+    },
+    {
+      "key": "Fhl/Fhl018.jpg",
+      "members": [
+        {
+          "case_num": "565",
+          "modality": "derm"
+        },
+        {
+          "case_num": "565",
+          "modality": "clinic"
+        }
+      ]
+    },
+    {
+      "key": "NBL/NBL041.JPG",
+      "members": [
+        {
+          "case_num": "824",
+          "modality": "derm"
+        },
+        {
+          "case_num": "824",
+          "modality": "clinic"
+        }
+      ]
+    },
+    {
+      "key": "NBL/NBL049.JPG",
+      "members": [
+        {
+          "case_num": "800",
+          "modality": "derm"
+        },
+        {
+          "case_num": "800",
+          "modality": "clinic"
+        }
+      ]
+    },
+    {
+      "key": "NBL/Nbl042.jpg",
+      "members": [
+        {
+          "case_num": "827",
+          "modality": "derm"
+        },
+        {
+          "case_num": "827",
+          "modality": "clinic"
+        }
+      ]
+    },
+    {
+      "key": "NEL/Nel050.jpg",
+      "members": [
+        {
+          "case_num": "844",
+          "modality": "derm"
+        },
+        {
+          "case_num": "844",
+          "modality": "clinic"
+        }
+      ]
+    },
+    {
+      "key": "NEL/Nel051.jpg",
+      "members": [
+        {
+          "case_num": "851",
+          "modality": "derm"
+        },
+        {
+          "case_num": "851",
+          "modality": "clinic"
+        }
+      ]
+    }
+  ],
+  "byte_identical_images": [],
+  "pixel_identical_images": [],
+  "cross_case_shared_paths": [],
+  "cross_case_pixel_duplicates": []
+}

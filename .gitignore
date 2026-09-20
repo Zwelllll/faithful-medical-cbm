@@ -13,6 +13,7 @@ data/splits/*
 !data/splits/.gitkeep
 artifacts/*
 !artifacts/.gitkeep
+!artifacts/audit/
 checkpoints/*
 !checkpoints/.gitkeep
 

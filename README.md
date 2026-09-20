@@ -6,8 +6,8 @@ engineering constraints are in [AGENTS.md](AGENTS.md).
 
 ## Status
 
-Stage 00 only: repository initialization. No dataset has been downloaded, loaded,
-preprocessed or split; no models or training pipeline have been implemented.
+Stage 01: raw Derm7pt dataset audited. No cohort, concept conversion, development/test
+split, model or training pipeline has been implemented.
 The starter lives in this directory, one level below the supplied workspace root.
 
 ## Setup (PowerShell, Python 3.11+)
@@ -53,12 +53,34 @@ is not guaranteed. DataLoader worker seeding will be added at the DataLoader sta
 
 - `src/faithful_medical_cbm/`: importable package; data, models, training,
   interventions and evaluation subpackages reserved for later stages.
+- `src/data/audit.py`: standalone read-only release audit, run from the repository root.
 - `configs/`: central configuration.
 - `scripts/`: environment reporting.
-- `tests/`: initialization checks.
-- `data/raw/`, `data/processed/`, `data/splits/`: empty data placeholders.
-- `artifacts/`, `checkpoints/`, `notebooks/`: empty output/work placeholders.
+- `tests/`: initialization and synthetic dataset-integrity checks.
+- `data/raw/release_v0/`: user-provided raw release, excluded from Git.
+- `data/processed/`, `data/splits/`: empty placeholders.
+- `artifacts/audit/`: audit evidence and report; checkpoints and notebooks remain empty.
 - `docs/`: authoritative specification and append-only decision record.
 
-No metadata schema, diagnosis mapping or grouping identifier is assumed.
-Dataset audit is the next stage and requires a separate instruction.
+## Dataset audit
+
+```powershell
+python -m src.data.audit --raw data/raw/release_v0 --output artifacts/audit
+python -m unittest discover -s tests -v
+```
+
+The audit uses the standard library and Pillow, retains raw categorical strings,
+checks every image by decoding it, and hashes the complete release before and after
+inspection to verify that its contents remain unchanged. Supplied split-index files
+are inventoried and hashed, never parsed or adopted. Outputs cannot overlap the raw tree.
+
+See [audit report](artifacts/audit/report.md) and [machine-readable summary](artifacts/audit/summary.json).
+Detailed CSV files record raw file hashes, image dimensions/formats, image references,
+case-image pairs and all raw value counts. Duplicate reports compare filenames,
+metadata rows, references, exact file bytes and decoded RGB pixels; near-duplicates
+are not excluded by these checks. Metadata and notes determine modality, without
+visual clinical adjudication. Provenance records Python/Pillow and audit source hashes.
+
+The audit finds no patient identifier. `case_num` supports a case-level fallback;
+the sparse `case_id` does not establish complete patient or lesion grouping.
+Stage 2 requires explicit clinical inclusion and concept-conversion decisions.
