@@ -21,6 +21,25 @@ test_size = 0.20
 cohort = "stage2a/cohort.csv" # relative to paths.processed
 cohort_summary = "stage2a/summary.json" # relative to paths.artifacts
 
+[data_loading]
+image_root = "release_v0/images" # relative to paths.raw; derm_path only
+num_workers = 0
+pin_memory = false
+
+[augmentation]
+horizontal_flip_probability = 0.5
+vertical_flip_probability = 0.5
+rotation_degrees = 15.0
+crop_scale = [0.85, 1.0]
+crop_ratio = [0.9, 1.1]
+brightness = 0.1
+contrast = 0.1
+saturation = 0.1
+
+[normalization]
+mean = [0.485, 0.456, 0.406]
+std = [0.229, 0.224, 0.225]
+
 [concepts]
 names = [
   "atypical pigment network",

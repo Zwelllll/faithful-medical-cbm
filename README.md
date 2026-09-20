@@ -6,8 +6,8 @@ engineering constraints are in [AGENTS.md](AGENTS.md).
 
 ## Status
 
-Stage 2B: the primary cohort, seven concept mappings, 80/20 case-level split and four
-development folds are frozen. No image datasets/loaders, models or training exist.
+Stage 3: reusable dermoscopic Dataset/DataLoader infrastructure is implemented.
+The cohort, concept mappings and splits remain frozen. No model or training exists.
 The starter lives in this directory, one level below the supplied workspace root.
 
 ## Setup (PowerShell, Python 3.11+)
@@ -51,8 +51,8 @@ is not guaranteed. DataLoader worker seeding will be added at the DataLoader sta
 
 ## Layout
 
-- `src/faithful_medical_cbm/`: importable package; data, models, training,
-  interventions and evaluation subpackages reserved for later stages.
+- `src/faithful_medical_cbm/`: importable package with configuration, reproducibility,
+  and Dataset/DataLoader utilities; model/training implementation remains for later stages.
 - `src/data/audit.py`: standalone read-only release audit, run from the repository root.
 - `configs/`: central configuration.
 - `scripts/`: environment reporting.
@@ -159,3 +159,72 @@ This is CASE-LEVEL separation. case_num is not a patient identifier, and patient
 independence cannot be verified. The locked test is reserved for final frozen evaluation
 and may not be used during development, tuning, calibration, early stopping or debugging.
 The splitter never opens raw metadata, images, or original Derm7pt split-index files.
+
+## Stage 3 Dataset and DataLoader infrastructure
+
+```python
+from faithful_medical_cbm.config import load_config
+from faithful_medical_cbm.reproducibility import seed_everything
+from faithful_medical_cbm.data.loaders import LoaderFactory
+
+# When num_workers > 0, run this inside if __name__ == "__main__": on Windows.
+config = load_config("configs/default.toml")
+seed_everything(**config["reproducibility"])
+factory = LoaderFactory("configs/default.toml")
+development_train = factory.development()
+development_eval = factory.development(training=False)
+fold_zero = factory.fold(0)  # keys: "train", "validation"
+test_loader = factory.locked_test()  # construction only; sample access is blocked
+```
+
+Use `pip install -e .` as described above to import the package. Each Dataset item is:
+
+| Key | Type/shape | Meaning |
+|---|---|---|
+| image | float32 tensor `[3, H, W]` | normalized dermoscopic RGB image |
+| diagnosis | float32 scalar tensor | processed binary diagnosis |
+| concepts | float32 tensor `[7]` | frozen Stage 2A target order |
+| case_num | string | unchanged permanent case identifier |
+| split | string | development or test |
+| role | string | train, validation, or evaluation |
+| validation_fold | integer | case's own frozen validation fold; -1 for test |
+
+Default batches have image shape `[B, 3, 224, 224]`, diagnosis `[B]`, and concepts
+`[B, 7]`. Bookkeeping is for provenance, not model input. Concept order comes from
+the hash-verified Stage 2A summary; raw labels are never remapped in the Dataset.
+Only selected processed rows are converted into targets/paths once during construction.
+`__getitem__` opens only derm_path, converts to RGB, transforms the image and returns
+precomputed targets. It never parses CSV or categorical metadata. Clinical photographs,
+sex, location, seven_point_score and other audit metadata are not returned or used.
+
+Transforms are defined in `data/transforms.py` and configured in `configs/default.toml`:
+
+- Training: random resized crop (area 0.85–1.0, aspect ratio 0.9–1.1), horizontal and
+  vertical flips (each probability 0.5), rotation within ±15 degrees, and brightness,
+  contrast and saturation jitter of 0.1. Crop resizing is bicubic; rotation is bilinear
+  with torchvision's default black fill. These are provisional engineering settings,
+  not choices based on locked-test performance.
+- Evaluation: deterministic bicubic resize of the full image to 224×224 without cropping;
+  this resizes aspect ratio to square. No random operations or color jitter.
+- Both: convert pixel values to float32 in [0, 1], then ImageNet RGB normalization with
+  mean `[0.485, 0.456, 0.406]` and std `[0.229, 0.224, 0.225]`. No weights are loaded.
+
+Batch size 32, image size 224, workers 0 and pin_memory=false are centralized in config.
+Training shuffles with a seeded torch.Generator. Evaluation keeps frozen ID order.
+No loader drops the last batch. Fold training uses the other three development folds;
+validation uses the requested fold. Factories never generate or rewrite split files.
+Input hashes and ID disjointness/coverage are checked before constructing datasets.
+
+For reproducible training augmentations with zero workers, seed the main process with
+seed_everything before iteration. With workers enabled, spawned workers receive seeded
+PyTorch state plus Python/NumPy seeds derived from torch.initial_seed(). Worker counts
+may change augmentation streams; reproducibility assumes the same configuration/runtime.
+
+The locked-test factory is separate and uses evaluation transforms only. Its default
+Dataset blocks sample access before opening an image. The explicit
+allow_locked_test_iteration=True option is reserved for the final frozen evaluation;
+do not enable it for development or debugging. Stage 3 tests use synthetic test fixtures,
+and the real locked-test loader is constructed but not indexed or iterated.
+
+Patient-level independence still cannot be verified. GPU pinning/transfer remains
+unverified on the current CPU-only runtime; this does not block CPU infrastructure use.

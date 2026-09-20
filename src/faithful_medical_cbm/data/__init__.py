@@ -1,1 +1,1 @@
-"""Reserved for a later project stage."""
+"""Dermoscopic datasets, transforms and read-only loaders for frozen splits."""
