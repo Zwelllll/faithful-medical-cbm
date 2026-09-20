@@ -1,0 +1,28 @@
+# Provisional engineering defaults; no experiments have been run.
+[reproducibility]
+seed = 42
+deterministic = true
+
+[paths]
+raw = "data/raw"
+processed = "data/processed"
+splits = "data/splits"
+artifacts = "artifacts"
+checkpoints = "checkpoints"
+
+[experiment]
+image_size = 224
+batch_size = 32
+num_folds = 4
+model_name = "efficientnet_b0"
+
+[concepts]
+names = [
+  "atypical pigment network",
+  "regression structures",
+  "irregular pigmentation",
+  "blue-whitish veil",
+  "atypical vascular structures",
+  "irregular dots/globules",
+  "irregular streaks",
+]

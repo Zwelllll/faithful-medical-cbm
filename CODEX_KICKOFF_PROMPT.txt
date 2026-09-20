@@ -1,0 +1,65 @@
+You are helping me implement a research-grade deep-learning project on faithful and intervenable Concept Bottleneck Models for dermoscopic melanoma classification.
+
+First read:
+- AGENTS.md
+- docs/PROJECT_SPEC.md
+- docs/DECISIONS.md
+
+Treat docs/PROJECT_SPEC.md as the authoritative research design and AGENTS.md as mandatory engineering/scientific constraints.
+
+Do NOT begin implementing the full ML pipeline yet.
+
+For this task, initialize and audit the repository.
+
+Objectives:
+1. Inspect the current repository structure.
+2. Compare it with the structure proposed in docs/PROJECT_SPEC.md.
+3. Create only the missing high-level directories/files needed to begin.
+4. Create a sensible Python project structure under src/.
+5. Add a central configuration system for:
+   - random seeds
+   - paths
+   - image size
+   - batch size
+   - number of folds
+   - model name
+   - concept definitions
+6. Create reproducibility utilities that seed:
+   - Python random
+   - NumPy
+   - PyTorch
+   - CUDA where available
+7. Add dependency/environment files appropriate for a PyTorch computer-vision project.
+8. Add a minimal test framework.
+9. Add a script that reports the runtime environment:
+   - Python
+   - PyTorch
+   - CUDA
+   - cuDNN
+   - GPU
+   - major package versions
+
+Do NOT:
+- download datasets yet
+- train models
+- create train/test splits
+- implement the final architecture
+- invent metadata columns
+- assume patient_id exists
+- inspect or use a test set
+- alter the scientific design
+- introduce unnecessary dependencies
+
+Prefer straightforward, readable Python over elaborate abstractions.
+
+Before changing anything, briefly summarize what you found in the repository and what you intend to create.
+
+After implementation:
+- run relevant tests
+- show me the resulting repository tree
+- list files created or modified
+- list commands executed
+- report test results
+- identify assumptions you had to make
+
+Stop after completing this initialization stage. Do not proceed to dataset preprocessing without my instruction.
