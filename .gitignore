@@ -11,6 +11,10 @@ data/processed/*
 !data/processed/.gitkeep
 data/splits/*
 !data/splits/.gitkeep
+!data/splits/development_ids.csv
+!data/splits/test_ids.csv
+!data/splits/development_folds.csv
+!data/splits/split_metadata.json
 artifacts/*
 !artifacts/.gitkeep
 !artifacts/audit/

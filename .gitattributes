@@ -1,0 +1,3 @@
+# Frozen split hashes must survive Windows/Linux Git checkouts unchanged.
+data/splits/*.csv text eol=lf
+data/splits/*.json text eol=lf

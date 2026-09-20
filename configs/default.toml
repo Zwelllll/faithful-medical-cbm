@@ -1,4 +1,4 @@
-# Provisional engineering defaults; no experiments have been run.
+# Seed 42 is frozen for Stage 2B. Image/batch defaults remain provisional.
 [reproducibility]
 seed = 42
 deterministic = true
@@ -15,6 +15,11 @@ image_size = 224
 batch_size = 32
 num_folds = 4
 model_name = "efficientnet_b0"
+
+[splitting]
+test_size = 0.20
+cohort = "stage2a/cohort.csv" # relative to paths.processed
+cohort_summary = "stage2a/summary.json" # relative to paths.artifacts
 
 [concepts]
 names = [

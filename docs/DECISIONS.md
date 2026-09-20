@@ -79,3 +79,46 @@ case_id is sparse and no patient linkage exists. Before Stage 2B, accept/documen
 specification's case-level fallback or obtain authoritative linkage. No grouping IDs are invented.
 Status: Path normalization frozen; patient/lesion grouping limitation remains open
 Test set consulted: No
+
+## D009 — Frozen case-level split and development folds (Stage 2B, 2026-09-20)
+Decision: Use deterministic CASE-LEVEL diagnosis-stratified splitting because no
+authoritative patient identifier or reliable lesion linkage is available. The user
+explicitly accepts this methodological limitation for the study. This resolves D008's
+choice of splitting strategy, not the absence of patient/lesion linkage.
+case_num is the permanent sample identifier only; grouping by this unique case number
+does not provide patient-level protection. Patient-level independence cannot be verified.
+
+Method: Read only the processed Stage 2A cohort, verify its Stage 2A hash and class counts,
+and sort case_num strings lexicographically. Use scikit-learn train_test_split with
+test_size=0.20, shuffle=True, stratify=diagnosis_binary, random_state=42. The configured
+seed is frozen at 42. Round the test size up to 165 cases, leaving 658 development cases.
+The first generated split is permanent; no alternative seeds or class balances were tried.
+Original Derm7pt train/valid/test index files and raw metadata/images are not read.
+
+Within the sorted development IDs only, use StratifiedKFold(n_splits=4, shuffle=True,
+random_state=42), stratified by diagnosis_binary. Fold numbers are 0-based. Each
+development ID occurs in exactly one validation fold; its training folds are the other
+three validation folds. No locked-test ID may appear in any development fold.
+
+| Subset | Total | Positive | Negative |
+|---|---:|---:|---:|
+| Development | 658 | 198 | 460 |
+| Locked test | 165 | 50 | 115 |
+| Fold 0 validation | 165 | 50 | 115 |
+| Fold 1 validation | 165 | 50 | 115 |
+| Fold 2 validation | 164 | 49 | 115 |
+| Fold 3 validation | 164 | 49 | 115 |
+
+Permanent files: data/splits/development_ids.csv, test_ids.csv,
+development_folds.csv and split_metadata.json. Metadata includes class counts for
+both training and validation parts of each fold, input/output hashes, versions,
+seed, exact methods and the patient-independence limitation. Reruns verify existing
+files without regenerating or rewriting them; partial, altered or incompatible
+frozen outputs fail rather than being replaced.
+
+Status: Frozen. The locked test set must remain unused during development, including
+model selection, tuning, calibration, early stopping, threshold selection and debugging.
+It is reserved for the final evaluation after the development freeze.
+Test set access: IDs and binary diagnosis were used only to create and verify this
+authorized split and report its counts. No test images, model predictions or performance
+were accessed. No models, datasets/loaders or training were implemented.

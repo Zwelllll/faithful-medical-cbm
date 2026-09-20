@@ -1,0 +1,110 @@
+{
+  "stage": "2B",
+  "status": "frozen",
+  "created_utc": "2026-09-20T08:54:55.201113+00:00",
+  "settings": {
+    "seed": 42,
+    "test_size": 0.2,
+    "num_folds": 4,
+    "identifier": "case_num",
+    "stratification_target": "diagnosis_binary",
+    "input_order": "lexicographic case_num string order",
+    "split_method": "sklearn.model_selection.train_test_split",
+    "fold_method": "sklearn.model_selection.StratifiedKFold",
+    "shuffle": true,
+    "fold_numbering": "0-based"
+  },
+  "inputs": {
+    "cohort_sha256": "154a65609d7f0df9e880c8a08ec98270f3f4d77fe3273c8e040dcf99b5a03931",
+    "stage2a_summary_sha256": "341fe9cb078d16ec22102cde487777dd084870631b0a63a103bb3a0d37a1cadc"
+  },
+  "counts": {
+    "cohort": {
+      "total": 823,
+      "positive": 248,
+      "negative": 575
+    },
+    "development": {
+      "total": 658,
+      "positive": 198,
+      "negative": 460
+    },
+    "test": {
+      "total": 165,
+      "positive": 50,
+      "negative": 115
+    },
+    "folds": [
+      {
+        "fold": 0,
+        "training": {
+          "total": 493,
+          "positive": 148,
+          "negative": 345
+        },
+        "validation": {
+          "total": 165,
+          "positive": 50,
+          "negative": 115
+        }
+      },
+      {
+        "fold": 1,
+        "training": {
+          "total": 493,
+          "positive": 148,
+          "negative": 345
+        },
+        "validation": {
+          "total": 165,
+          "positive": 50,
+          "negative": 115
+        }
+      },
+      {
+        "fold": 2,
+        "training": {
+          "total": 494,
+          "positive": 149,
+          "negative": 345
+        },
+        "validation": {
+          "total": 164,
+          "positive": 49,
+          "negative": 115
+        }
+      },
+      {
+        "fold": 3,
+        "training": {
+          "total": 494,
+          "positive": 149,
+          "negative": 345
+        },
+        "validation": {
+          "total": 164,
+          "positive": 49,
+          "negative": 115
+        }
+      }
+    ]
+  },
+  "limitation": "Case-level stratification only. Authoritative patient identifiers and reliable lesion linkage are unavailable; patient-level independence cannot be verified. case_num identifies a case, not a patient, and does not provide patient-level protection.",
+  "test_policy": "Locked test is reserved for final frozen evaluation; never use it during development, tuning, calibration, early stopping or debugging.",
+  "original_derm7pt_indexes_used": false,
+  "raw_metadata_or_images_read": false,
+  "split_candidates_generated": 1,
+  "test_rounding": "ceil(cohort_size * test_size); development receives remaining cases",
+  "file_sha256": {
+    "development_ids.csv": "8a26426cafd4df776b75e2fb2ae4797a38300f6e28596d4c9cbbf678ebc13e52",
+    "test_ids.csv": "d81a84bf8eb9ff1a64268d22b0faa89e4ad95e2eebc5dd08f62dda630192104c",
+    "development_folds.csv": "6c8d835d2805a4382e2c95ca9b880239d69d905eb718f8445ac7b318fdff87aa"
+  },
+  "provenance": {
+    "python": "3.14.4",
+    "numpy": "2.5.2",
+    "scikit_learn": "1.9.0",
+    "source_sha256": "0a346df3b66e788013a365fd2974c2ddce47f4e2195bdbc8040f4877ba0885c9",
+    "config_sha256": "847604e1989c5d3960a4a9fc1d8e2841156fa9ed59954c951b43a015c87cb9a1"
+  }
+}
