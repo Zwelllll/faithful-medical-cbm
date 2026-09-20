@@ -6,8 +6,8 @@ engineering constraints are in [AGENTS.md](AGENTS.md).
 
 ## Status
 
-Stage 01: raw Derm7pt dataset audited. No cohort, concept conversion, development/test
-split, model or training pipeline has been implemented.
+Stage 2A: raw Derm7pt audited; the user-approved primary cohort and seven binary
+concept mappings are frozen. No development/test split, folds, model or training exists.
 The starter lives in this directory, one level below the supplied workspace root.
 
 ## Setup (PowerShell, Python 3.11+)
@@ -58,7 +58,7 @@ is not guaranteed. DataLoader worker seeding will be added at the DataLoader sta
 - `scripts/`: environment reporting.
 - `tests/`: initialization and synthetic dataset-integrity checks.
 - `data/raw/release_v0/`: user-provided raw release, excluded from Git.
-- `data/processed/`, `data/splits/`: empty placeholders.
+- `data/processed/stage2a/`: cohort and excluded metadata; `data/splits/` remains empty.
 - `artifacts/audit/`: audit evidence and report; checkpoints and notebooks remain empty.
 - `docs/`: authoritative specification and append-only decision record.
 
@@ -83,4 +83,38 @@ visual clinical adjudication. Provenance records Python/Pillow and audit source 
 
 The audit finds no patient identifier. `case_num` supports a case-level fallback;
 the sparse `case_id` does not establish complete patient or lesion grouping.
-Stage 2 requires explicit clinical inclusion and concept-conversion decisions.
+The Stage 1 report is historical; its clinical inclusion and concept-conversion
+questions were resolved by the user's Stage 2A instructions and recorded in DECISIONS.md.
+
+## Stage 2A cohort construction
+
+```powershell
+python -m src.data.cohort
+python -m unittest discover -s tests -v
+```
+
+`configs/cohort_mapping.json` stores every included/excluded diagnosis and every
+audited raw concept category's explicit binary mapping, in the frozen target order.
+`src/data/cohort.py` fails on unknown/missing labels, duplicate case numbers, output
+column collisions, unapproved path corrections, or raw inputs differing from Stage 1.
+Original Derm7pt split-index files are never opened by this stage.
+
+Outputs:
+
+- `data/processed/stage2a/cohort.csv`: 823 cases, including 248 positive and 575 negative.
+  All 19 raw columns remain intact. Added columns are `diagnosis_binary`, the seven
+  named binary concept targets, and `derm_path` relative to `data/raw/release_v0/images/`.
+- `data/processed/stage2a/excluded.csv`: all 188 excluded rows with raw fields and an
+  exclusion reason. Excluded diagnoses are never encoded as negative targets.
+- `artifacts/stage2a/summary.json`: class counts, excluded counts by raw diagnosis,
+  concept counts/prevalence, path corrections and SHA-256 provenance/output hashes.
+
+Generated processed metadata remains excluded from Git under the existing data policy;
+it is reproducible with the command above. No images are copied or changed. The only
+path correction is case 816's `FCl/Fcl068.jpg` to `FCL/Fcl068.jpg` in the added derm_path;
+the raw derm column remains unchanged. All metadata/image hashes are checked against
+Stage 1 and checked again after construction. Raw diagnosis, seven_point_score and
+other retained metadata are audit fields, not model inputs.
+
+Before Stage 2B, acknowledge the case-level grouping limitation or obtain verified
+patient/lesion linkage. The architecture and 80/20 protocol remain unchanged.

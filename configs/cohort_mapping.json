@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "status": "frozen_by_user_stage_2a",
+  "diagnosis_column": "diagnosis",
+  "diagnosis_target": "diagnosis_binary",
+  "diagnoses": {
+    "melanoma": "positive",
+    "melanoma (in situ)": "positive",
+    "melanoma (less than 0.76 mm)": "positive",
+    "melanoma (0.76 to 1.5 mm)": "positive",
+    "melanoma (more than 1.5 mm)": "positive",
+    "blue nevus": "negative",
+    "clark nevus": "negative",
+    "combined nevus": "negative",
+    "congenital nevus": "negative",
+    "dermal nevus": "negative",
+    "recurrent nevus": "negative",
+    "reed or spitz nevus": "negative",
+    "melanoma metastasis": "exclude",
+    "basal cell carcinoma": "exclude",
+    "dermatofibroma": "exclude",
+    "lentigo": "exclude",
+    "melanosis": "exclude",
+    "miscellaneous": "exclude",
+    "seborrheic keratosis": "exclude",
+    "vascular lesion": "exclude"
+  },
+  "concepts": [
+    {
+      "target": "atypical_pigment_network",
+      "source": "pigment_network",
+      "values": {
+        "absent": 0,
+        "typical": 0,
+        "atypical": 1
+      }
+    },
+    {
+      "target": "regression_structures_present",
+      "source": "regression_structures",
+      "values": {
+        "absent": 0,
+        "blue areas": 1,
+        "combinations": 1,
+        "white areas": 1
+      }
+    },
+    {
+      "target": "irregular_pigmentation",
+      "source": "pigmentation",
+      "values": {
+        "absent": 0,
+        "diffuse irregular": 1,
+        "localized irregular": 1,
+        "diffuse regular": 0,
+        "localized regular": 0
+      }
+    },
+    {
+      "target": "blue_whitish_veil_present",
+      "source": "blue_whitish_veil",
+      "values": {
+        "absent": 0,
+        "present": 1
+      }
+    },
+    {
+      "target": "atypical_vascular_structures",
+      "source": "vascular_structures",
+      "values": {
+        "absent": 0,
+        "arborizing": 0,
+        "within regression": 0,
+        "hairpin": 0,
+        "dotted": 1,
+        "comma": 0,
+        "linear irregular": 1,
+        "wreath": 0
+      }
+    },
+    {
+      "target": "irregular_dots_and_globules",
+      "source": "dots_and_globules",
+      "values": {
+        "absent": 0,
+        "irregular": 1,
+        "regular": 0
+      }
+    },
+    {
+      "target": "irregular_streaks",
+      "source": "streaks",
+      "values": {
+        "absent": 0,
+        "irregular": 1,
+        "regular": 0
+      }
+    }
+  ],
+  "derm_path_corrections": [
+    {
+      "case_num": "816",
+      "raw": "FCl/Fcl068.jpg",
+      "normalized": "FCL/Fcl068.jpg"
+    }
+  ]
+}

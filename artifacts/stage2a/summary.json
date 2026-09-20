@@ -1,0 +1,126 @@
+{
+  "stage": "2A",
+  "input_cases": 1011,
+  "cohort_size": 823,
+  "positive_cases": 248,
+  "negative_cases": 575,
+  "excluded_cases": 188,
+  "included_counts_by_raw_diagnosis": {
+    "blue nevus": 28,
+    "clark nevus": 399,
+    "combined nevus": 13,
+    "congenital nevus": 17,
+    "dermal nevus": 33,
+    "melanoma": 1,
+    "melanoma (0.76 to 1.5 mm)": 53,
+    "melanoma (in situ)": 64,
+    "melanoma (less than 0.76 mm)": 102,
+    "melanoma (more than 1.5 mm)": 28,
+    "recurrent nevus": 6,
+    "reed or spitz nevus": 79
+  },
+  "excluded_counts_by_raw_diagnosis": {
+    "basal cell carcinoma": 42,
+    "dermatofibroma": 20,
+    "lentigo": 24,
+    "melanoma metastasis": 4,
+    "melanosis": 16,
+    "miscellaneous": 8,
+    "seborrheic keratosis": 45,
+    "vascular lesion": 29
+  },
+  "diagnosis_target": "diagnosis_binary",
+  "concept_target_order": [
+    "atypical_pigment_network",
+    "regression_structures_present",
+    "irregular_pigmentation",
+    "blue_whitish_veil_present",
+    "atypical_vascular_structures",
+    "irregular_dots_and_globules",
+    "irregular_streaks"
+  ],
+  "concept_counts": {
+    "atypical_pigment_network": {
+      "positive": 216,
+      "negative": 607,
+      "prevalence": 0.2624544349939247
+    },
+    "regression_structures_present": {
+      "positive": 233,
+      "negative": 590,
+      "prevalence": 0.28311057108140947
+    },
+    "irregular_pigmentation": {
+      "positive": 260,
+      "negative": 563,
+      "prevalence": 0.3159173754556501
+    },
+    "blue_whitish_veil_present": {
+      "positive": 182,
+      "negative": 641,
+      "prevalence": 0.22114216281895505
+    },
+    "atypical_vascular_structures": {
+      "positive": 64,
+      "negative": 759,
+      "prevalence": 0.07776427703523693
+    },
+    "irregular_dots_and_globules": {
+      "positive": 390,
+      "negative": 433,
+      "prevalence": 0.4738760631834751
+    },
+    "irregular_streaks": {
+      "positive": 237,
+      "negative": 586,
+      "prevalence": 0.28797083839611176
+    }
+  },
+  "raw_columns_preserved": [
+    "case_num",
+    "diagnosis",
+    "seven_point_score",
+    "pigment_network",
+    "streaks",
+    "pigmentation",
+    "regression_structures",
+    "dots_and_globules",
+    "blue_whitish_veil",
+    "vascular_structures",
+    "level_of_diagnostic_difficulty",
+    "elevation",
+    "location",
+    "sex",
+    "management",
+    "clinic",
+    "derm",
+    "case_id",
+    "notes"
+  ],
+  "path_corrections": [
+    {
+      "case_num": "816",
+      "raw": "FCl/Fcl068.jpg",
+      "normalized": "FCL/Fcl068.jpg",
+      "included": true
+    }
+  ],
+  "derm_path_base": "raw release images/ directory",
+  "raw_metadata_and_images_unchanged": true,
+  "original_split_indexes_read": false,
+  "splits_created": false,
+  "folds_created": false,
+  "grouping_limitation": "No reliable patient/lesion linkage; case_num is the specification's fallback case key. Confirm this limitation before splitting.",
+  "provenance": {
+    "python": "3.14.4",
+    "config_sha256": "a537122a5f8a052d374716d4b1116d2e02bbc13f17f33cb08d7a56e19e3dac47",
+    "source_sha256": "b2b40a06045d964668a8622ee7f84ab4b658ad3bdddf85d2bd9639982c2bb593",
+    "raw_metadata_sha256": "471199fb86bcc97cd1521bcc4255bb3f9c563e2ed0ad3ff836392d81a3ed9d3b",
+    "stage1_manifest_sha256": "1e152c708a5b899ec2456f526e68098d7f8a6977659098dc4fab1c5a62370d2c",
+    "stage1_summary_sha256": "012dff269d6285e8d0c263825a19f6c14c0083ce2fc6cf923939fe629aaec366"
+  },
+  "output_sha256": {
+    "cohort.csv": "154a65609d7f0df9e880c8a08ec98270f3f4d77fe3273c8e040dcf99b5a03931",
+    "excluded.csv": "e658f0da0c6f408bcac8abc63836341820c90f93d62c448a9e555ae81c2ffa21"
+  }
+}

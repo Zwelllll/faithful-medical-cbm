@@ -14,6 +14,7 @@ data/splits/*
 artifacts/*
 !artifacts/.gitkeep
 !artifacts/audit/
+!artifacts/stage2a/
 checkpoints/*
 !checkpoints/.gitkeep
 
