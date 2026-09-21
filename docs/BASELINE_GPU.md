@@ -1,5 +1,17 @@
 # Stage 4: black-box baseline execution
 
+For the first Fold 0 run, use [the Stage 4B Colab notebook](../notebooks/colab_fold0.ipynb).
+It clones a pinned Git commit, mounts Google Drive, installs dependencies while preserving
+CUDA PyTorch, verifies the frozen artifact/config/source manifest, and connects outputs
+to persistent storage. Fill in your Git URL, commit SHA and Drive paths. No Git remote
+was configured locally when preparing this workflow; publish the code to your own
+repository first, excluding raw/processed data. The notebook contains the dataset layout,
+preflight checks, one explicit training cell, and a post-run summary. The companion
+`colab_fold0.py` checks paths without opening images or iterating loaders.
+The Stage 2A summary was originally hashed with CRLF line endings. `.gitattributes`
+preserves those checkout bytes on Linux as well; frozen split files remain LF.
+The cohort must be transferred byte-for-byte from local storage, not resaved in an editor.
+
 Infrastructure is implemented; no real training run has been performed. CPU checks
 use random weights and synthetic tensors. Their outputs are not research results.
 

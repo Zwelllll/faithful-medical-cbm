@@ -1,0 +1,118 @@
+{
+  "stage": "4B",
+  "description": "Frozen Stage 4 baseline snapshot; never regenerate in Colab. Earlier-stage config hashes are historical.",
+  "files": {
+    "artifacts/stage2a/summary.json": {
+      "mode": "bytes",
+      "sha256": "341fe9cb078d16ec22102cde487777dd084870631b0a63a103bb3a0d37a1cadc"
+    },
+    "data/processed/stage2a/cohort.csv": {
+      "mode": "bytes",
+      "sha256": "154a65609d7f0df9e880c8a08ec98270f3f4d77fe3273c8e040dcf99b5a03931"
+    },
+    "data/splits/development_folds.csv": {
+      "mode": "bytes",
+      "sha256": "6c8d835d2805a4382e2c95ca9b880239d69d905eb718f8445ac7b318fdff87aa"
+    },
+    "data/splits/development_ids.csv": {
+      "mode": "bytes",
+      "sha256": "8a26426cafd4df776b75e2fb2ae4797a38300f6e28596d4c9cbbf678ebc13e52"
+    },
+    "data/splits/split_metadata.json": {
+      "mode": "bytes",
+      "sha256": "b44ba9321d26caed0b0515d57211781a43fd5767fff89aeafa6159713965b612"
+    },
+    "data/splits/test_ids.csv": {
+      "mode": "bytes",
+      "sha256": "d81a84bf8eb9ff1a64268d22b0faa89e4ad95e2eebc5dd08f62dda630192104c"
+    },
+    "configs/cohort_mapping.json": {
+      "mode": "lf",
+      "sha256": "df3c33c454cc740df99636e81206c654a74686147d413a2a1489676d5e711d0c"
+    },
+    "configs/default.toml": {
+      "mode": "lf",
+      "sha256": "8fb655664ba005dccc46dc5d01e90b8c90ad610fd6b6de938dc69594c954615b"
+    },
+    "docs/colab_fold0.py": {
+      "mode": "lf",
+      "sha256": "8c6f6c7fe9ff76e2cbeb6c830004b67ab811e558d80b549429435d1d51e50ab3"
+    },
+    "notebooks/colab_fold0.ipynb": {
+      "mode": "lf",
+      "sha256": "0463fadbd743e40ace2fbdd77f688b974f73b8e634345246e1b3bb217c1bd0bf"
+    },
+    "pyproject.toml": {
+      "mode": "lf",
+      "sha256": "b8c976c2abe399ce03ae9b76fb742faa5d158e12dd7b9bdc427391ea5102658d"
+    },
+    "requirements.txt": {
+      "mode": "lf",
+      "sha256": "8963e5de7bfeebad86114150e1585574951006eff2e81b1880c5748f64fc0336"
+    },
+    "scripts/report_environment.py": {
+      "mode": "lf",
+      "sha256": "c2cb96240552dbec1993cd7478adc281f41f25cdb368b85f8297abe0134d4c99"
+    },
+    "src/faithful_medical_cbm/__init__.py": {
+      "mode": "lf",
+      "sha256": "458501038885defd24772e6c544e6c7bc246ad9e0072789dbbc3da98b090a20c"
+    },
+    "src/faithful_medical_cbm/config.py": {
+      "mode": "lf",
+      "sha256": "638e426feb10725c25cf5e6a3f6b569e9b59969bde8dc0975f92c62dcbb55dff"
+    },
+    "src/faithful_medical_cbm/data/__init__.py": {
+      "mode": "lf",
+      "sha256": "8114b2f8dee5c50c2f87dc97252593e3846a94fa734158082ecd9ffe1b06f9ed"
+    },
+    "src/faithful_medical_cbm/data/dataset.py": {
+      "mode": "lf",
+      "sha256": "d85ab12842bcdf9ce4ce7f7191e6011fa06a7601603161e6f08fe3b1fa0856e8"
+    },
+    "src/faithful_medical_cbm/data/loaders.py": {
+      "mode": "lf",
+      "sha256": "9c0820b1e33a5aedac3f7289b3739f1ba23f3daef98beb1b250255ecc58cf053"
+    },
+    "src/faithful_medical_cbm/data/transforms.py": {
+      "mode": "lf",
+      "sha256": "7e994b3e3eb4b6876bce8b1598f05a58f2a42bd4857bcf09eb473161251115a6"
+    },
+    "src/faithful_medical_cbm/evaluation/__init__.py": {
+      "mode": "lf",
+      "sha256": "bbc652ef65d76a33b29722d9c87ef3b654b82f909d00d0515867549935e12b3f"
+    },
+    "src/faithful_medical_cbm/interventions/__init__.py": {
+      "mode": "lf",
+      "sha256": "bbc652ef65d76a33b29722d9c87ef3b654b82f909d00d0515867549935e12b3f"
+    },
+    "src/faithful_medical_cbm/models/__init__.py": {
+      "mode": "lf",
+      "sha256": "f34454b75b93ec8a3965e724922b6203f791e37237410b59d87beb2b48c4b4f2"
+    },
+    "src/faithful_medical_cbm/models/black_box.py": {
+      "mode": "lf",
+      "sha256": "1a78e2c0342e2ce870c1e1a5ad2bb7a2d81332a1f3da5dfa5bda5502d9d9c451"
+    },
+    "src/faithful_medical_cbm/reproducibility.py": {
+      "mode": "lf",
+      "sha256": "333b12bb144c3a5c55fba854e6e399fa4b735534feccefac50a80fd826692ee6"
+    },
+    "src/faithful_medical_cbm/training/__init__.py": {
+      "mode": "lf",
+      "sha256": "95f8205402bbcb46d0320045f054e126579c8f06f16b5c80eeb03dc700dc04bc"
+    },
+    "src/faithful_medical_cbm/training/baseline.py": {
+      "mode": "lf",
+      "sha256": "0ce5db27e36a04c723f2cca19c9fee95de5e48e13355162010943d0e70482171"
+    },
+    "src/faithful_medical_cbm/training/train_black_box.py": {
+      "mode": "lf",
+      "sha256": "d1717496d9ccbdc9e20d47cd21f37538b8160e40f24aa255c9e31d3d1022c9c6"
+    },
+    ".gitattributes": {
+      "mode": "lf",
+      "sha256": "73fa4c3c4aafe196ddc0562bc7662e803ff08e9b80f669662e8436b28be150cc"
+    }
+  }
+}

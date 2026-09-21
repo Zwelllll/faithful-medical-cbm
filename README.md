@@ -232,6 +232,11 @@ unverified on the current CPU-only runtime; this does not block CPU infrastructu
 
 ## Stage 4 black-box baseline
 
+Stage 4B first-run preparation: open [the Fold 0 Colab notebook](notebooks/colab_fold0.ipynb).
+It uses a pinned Git checkout and Google Drive for development data and persistent
+outputs, verifies frozen hashes and fold membership, and runs only Fold 0 when its
+training cell is explicitly executed. No real GPU experiment has been run locally.
+
 See [GPU/Colab execution instructions](docs/BASELINE_GPU.md) for prerequisites,
 the exact training schedule, checkpoint loading and limitations. The real-training
 entry point requires CUDA and operates on one frozen development fold at a time:

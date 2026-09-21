@@ -1,3 +1,5 @@
 # Frozen split hashes must survive Windows/Linux Git checkouts unchanged.
 data/splits/*.csv text eol=lf
 data/splits/*.json text eol=lf
+# Stage 2B hashes the original Stage 2A summary bytes (CRLF), including on Colab.
+artifacts/stage2a/summary.json text eol=crlf
