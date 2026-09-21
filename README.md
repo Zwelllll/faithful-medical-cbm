@@ -6,8 +6,9 @@ engineering constraints are in [AGENTS.md](AGENTS.md).
 
 ## Status
 
-Stage 3: reusable dermoscopic Dataset/DataLoader infrastructure is implemented.
-The cohort, concept mappings and splits remain frozen. No model or training exists.
+Stage 4: the black-box EfficientNet-B0 baseline and development-fold training
+infrastructure are implemented. No real training experiment has been run.
+The cohort, concept mappings and splits remain frozen.
 The starter lives in this directory, one level below the supplied workspace root.
 
 ## Setup (PowerShell, Python 3.11+)
@@ -25,7 +26,7 @@ machine's CUDA runtime, or a CPU build. Dependency lower bounds are not a tested
 lockfile. Record the resolved environment before experiments with
 `python -m pip freeze > artifacts/requirements-resolved.txt` and
 `python scripts/report_environment.py > artifacts/environment.json`.
-Torchvision is the planned augmentation library; no transforms are implemented yet.
+Torchvision supplies the implemented image transforms and EfficientNet-B0 backbone.
 Tests use Python's standard-library unittest framework. RNG tests skip explicitly
 when NumPy or PyTorch is absent. No lint tool is configured.
 
@@ -47,12 +48,12 @@ seed_everything(**config["reproducibility"])
 
 Call seeding before CUDA initialization. Strict deterministic algorithms may
 reject unsupported operations. Reproducibility across library versions/hardware
-is not guaranteed. DataLoader worker seeding will be added at the DataLoader stage.
+is not guaranteed. DataLoader worker seeding is implemented in the loader utilities.
 
 ## Layout
 
 - `src/faithful_medical_cbm/`: importable package with configuration, reproducibility,
-  and Dataset/DataLoader utilities; model/training implementation remains for later stages.
+  Dataset/DataLoader utilities, and the black-box baseline model/training modules.
 - `src/data/audit.py`: standalone read-only release audit, run from the repository root.
 - `configs/`: central configuration.
 - `scripts/`: environment reporting.
@@ -228,3 +229,19 @@ and the real locked-test loader is constructed but not indexed or iterated.
 
 Patient-level independence still cannot be verified. GPU pinning/transfer remains
 unverified on the current CPU-only runtime; this does not block CPU infrastructure use.
+
+## Stage 4 black-box baseline
+
+See [GPU/Colab execution instructions](docs/BASELINE_GPU.md) for prerequisites,
+the exact training schedule, checkpoint loading and limitations. The real-training
+entry point requires CUDA and operates on one frozen development fold at a time:
+
+```bash
+python -m faithful_medical_cbm.training.train_black_box --config configs/default.toml --fold 0 --run-name baseline-v1
+```
+
+The direct image-to-logit EfficientNet-B0 uses ImageNet weights for actual runs.
+Offline tests construct random weights, exercise one forward pass and one tiny
+synthetic optimizer step, and verify checkpoint loading and fold isolation. No
+real locked-test images are accessed. Training history and raw validation predictions
+will be saved under artifacts/baseline/; best/last checkpoints under checkpoints/baseline/.

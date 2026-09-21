@@ -1,1 +1,1 @@
-"""Reserved for a later project stage."""
+"""Image classification models for the frozen research protocol."""
