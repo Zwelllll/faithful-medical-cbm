@@ -1,0 +1,22 @@
+{
+  "stage": 5,
+  "concept": "atypical_pigment_network",
+  "validation_fold": 0,
+  "subsets": {
+    "train": {
+      "total": 493,
+      "positive": 129,
+      "negative": 364,
+      "prevalence": 0.2616632860040568
+    },
+    "validation": {
+      "total": 165,
+      "positive": 48,
+      "negative": 117,
+      "prevalence": 0.2909090909090909
+    }
+  },
+  "training_pos_weight": 2.8217054263565893,
+  "images_opened": false,
+  "training_run": false
+}

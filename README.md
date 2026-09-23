@@ -250,3 +250,11 @@ Offline tests construct random weights, exercise one forward pass and one tiny
 synthetic optimizer step, and verify checkpoint loading and fold isolation. No
 real locked-test images are accessed. Training history and raw validation predictions
 will be saved under artifacts/baseline/; best/last checkpoints under checkpoints/baseline/.
+
+## Stage 5 one-concept sanity infrastructure
+
+See [the concept GPU run instructions](docs/CONCEPT_SANITY_GPU.md). The separate
+configs/concept_sanity.toml trains only atypical_pigment_network on Fold 0, with
+training-derived weighted BCE, fixed threshold 0.5, validation AUROC and Macro-F1.
+The user reports all four baseline GPU development runs completed externally; no
+concept GPU run has been performed locally. Cohort, mappings and splits are unchanged.

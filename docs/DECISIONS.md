@@ -122,3 +122,18 @@ It is reserved for the final evaluation after the development freeze.
 Test set access: IDs and binary diagnosis were used only to create and verify this
 authorized split and report its counts. No test images, model predictions or performance
 were accessed. No models, datasets/loaders or training were implemented.
+
+## D010 — Stage 5 one-concept development sanity infrastructure (2026-09-23)
+Decision: Implement only atypical_pigment_network on development Fold 0, using its
+unchanged Stage 2A target. Use training-only negative/positive weighting (364/129),
+a fixed 0.5 probability threshold (>= is positive), and validation AUROC for early
+stopping/checkpoint selection. Report validation Macro-F1 as well as AUROC and losses.
+The independent concept config retains the baseline's original transfer schedule;
+external baseline scores did not influence configuration choices. No seven-head,
+CBM diagnosis, OOF or intervention work is authorized in this stage.
+Status: Infrastructure implemented; real concept GPU run pending.
+Context: User reports completed external baseline development AUROCs 0.8833, 0.8708,
+0.9207, 0.8673 (mean 0.8855, sample SD 0.0244). External run artifacts were not supplied
+locally for verification; these are development results only.
+Test set access: No images or performance accessed. Only frozen exclusion IDs are
+read by existing loader integrity checks. Patient-level independence remains unverifiable.

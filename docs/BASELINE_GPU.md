@@ -12,8 +12,11 @@ The Stage 2A summary was originally hashed with CRLF line endings. `.gitattribut
 preserves those checkout bytes on Linux as well; frozen split files remain LF.
 The cohort must be transferred byte-for-byte from local storage, not resaved in an editor.
 
-Infrastructure is implemented; no real training run has been performed. CPU checks
-use random weights and synthetic tensors. Their outputs are not research results.
+The user reports four external GPU development runs completed: validation AUROCs
+0.8833, 0.8708, 0.9207 and 0.8673 (mean 0.8855, sample SD 0.0244).
+External run artifacts have not been supplied locally for verification. The user
+reports the locked test remains untouched. Local CPU checks use random weights and
+synthetic tensors; their outputs are not research results.
 
 ## Cloud/Colab setup
 
