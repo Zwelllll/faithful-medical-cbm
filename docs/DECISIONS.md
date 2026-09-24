@@ -258,3 +258,26 @@ are in artifacts/interventions/policies/; see INTERVENTION_POLICIES.md.
 Status: Stage 11 complete. No model retraining, intervention-aware heads, joint
 CBMs, threshold tuning, test images/labels, or changes to Stage 7-10 artifacts.
 Existing non-nested development and patient-independence limitations remain.
+
+## D017 — Stage 12 joint soft/hard infrastructure (2026-09-24)
+Decision: Reuse ImageNet EfficientNet-B0 and seven frozen ordered concept logits.
+Joint soft feeds sigmoid probabilities to a single linear 7-to-1 diagnosis layer
+with intercept. Joint hard feeds exact binary >=0.5 concepts; backward uses a
+sigmoid straight-through surrogate, explicitly JOINT HARD CBM WITH STE. Threshold
+itself is not differentiable. No hidden diagnosis layers or image-feature bypass.
+Loss is training-fold-weighted seven-concept BCE + unweighted diagnosis BCE,
+weights exactly 1.0/1.0. Keep image 224, batch 32, seed 42, AdamW decay 0.0001,
+3 head-only epochs LR 0.001 then last 3 feature children LR 0.0001, max 30,
+patience 7. Both heads train in both phases; frozen feature blocks remain eval.
+Select/stop only on validation diagnosis AUROC, not concept or composite scores.
+Report seven concept AUROCs/F1s, concept macro means, diagnosis metrics including
+frozen ECE, and all three losses. Persist raw validation rows before metrics.
+Separate joint_soft/joint_hard namespaces with overwrite guards and full provenance.
+Checkpoints reject incompatible model types/orders. Full entry point requires CUDA.
+Status: Infrastructure complete; eight offline tests pass. Only synthetic forward,
+optimizer and checkpoint tests ran; no actual GPU training or weight download.
+Fold 0 weights derive only from 493 training cases; see joint_preflight.json and
+JOINT_CBM_GPU.md for exact values, Drive setup and first-run commands.
+No locked-test loaders/images/labels, cohort/split/mapping changes, sequential
+retraining, joint OOF generation, or changes to Stage 7-11 artifacts. Existing
+case-level patient-independence limitation remains. GPU execution is pending.

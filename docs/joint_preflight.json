@@ -1,0 +1,101 @@
+{
+  "stage": 12,
+  "fold": 0,
+  "concept_order": [
+    "atypical_pigment_network",
+    "regression_structures_present",
+    "irregular_pigmentation",
+    "blue_whitish_veil_present",
+    "atypical_vascular_structures",
+    "irregular_dots_and_globules",
+    "irregular_streaks"
+  ],
+  "training_cases": 493,
+  "validation_cases": 165,
+  "training_prevalence": {
+    "atypical_pigment_network": {
+      "total": 493,
+      "positive": 129,
+      "negative": 364,
+      "prevalence": 0.2616632860040568
+    },
+    "regression_structures_present": {
+      "total": 493,
+      "positive": 133,
+      "negative": 360,
+      "prevalence": 0.2697768762677485
+    },
+    "irregular_pigmentation": {
+      "total": 493,
+      "positive": 155,
+      "negative": 338,
+      "prevalence": 0.3144016227180527
+    },
+    "blue_whitish_veil_present": {
+      "total": 493,
+      "positive": 107,
+      "negative": 386,
+      "prevalence": 0.21703853955375255
+    },
+    "atypical_vascular_structures": {
+      "total": 493,
+      "positive": 33,
+      "negative": 460,
+      "prevalence": 0.06693711967545639
+    },
+    "irregular_dots_and_globules": {
+      "total": 493,
+      "positive": 229,
+      "negative": 264,
+      "prevalence": 0.4645030425963489
+    },
+    "irregular_streaks": {
+      "total": 493,
+      "positive": 134,
+      "negative": 359,
+      "prevalence": 0.2718052738336714
+    }
+  },
+  "training_pos_weights": {
+    "atypical_pigment_network": 2.8217054263565893,
+    "regression_structures_present": 2.706766917293233,
+    "irregular_pigmentation": 2.1806451612903226,
+    "blue_whitish_veil_present": 3.607476635514019,
+    "atypical_vascular_structures": 13.93939393939394,
+    "irregular_dots_and_globules": 1.1528384279475983,
+    "irregular_streaks": 2.6791044776119404
+  },
+  "source_files": {
+    "configs/joint_soft.toml": {
+      "mode": "lf",
+      "sha256": "a0d9e87257387dcb8eabc3bb35bba038604034445beabeff94b20eb3dcd3e4dc"
+    },
+    "configs/joint_hard.toml": {
+      "mode": "lf",
+      "sha256": "b9b4cb0f04a5ce32baba57f37be87cff59a6a93315664e2dc08d405f9f28f321"
+    },
+    "data/processed/stage2a/cohort.csv": {
+      "mode": "bytes",
+      "sha256": "154a65609d7f0df9e880c8a08ec98270f3f4d77fe3273c8e040dcf99b5a03931"
+    },
+    "data/splits/development_folds.csv": {
+      "mode": "bytes",
+      "sha256": "6c8d835d2805a4382e2c95ca9b880239d69d905eb718f8445ac7b318fdff87aa"
+    },
+    "data/splits/development_ids.csv": {
+      "mode": "bytes",
+      "sha256": "8a26426cafd4df776b75e2fb2ae4797a38300f6e28596d4c9cbbf678ebc13e52"
+    },
+    "data/splits/test_ids.csv": {
+      "mode": "bytes",
+      "sha256": "d81a84bf8eb9ff1a64268d22b0faa89e4ad95e2eebc5dd08f62dda630192104c"
+    },
+    "data/splits/split_metadata.json": {
+      "mode": "bytes",
+      "sha256": "b44ba9321d26caed0b0515d57211781a43fd5767fff89aeafa6159713965b612"
+    }
+  },
+  "images_opened": false,
+  "locked_test_used": false,
+  "full_training_run": false
+}
