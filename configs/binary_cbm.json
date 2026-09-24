@@ -1,0 +1,7 @@
+{
+  "stage": 9,
+  "stage8_config": "configs/sequential_soft.json",
+  "soft_outputs": "artifacts/cbm/sequential_soft",
+  "output_root": "artifacts/cbm",
+  "concept_threshold": 0.5
+}

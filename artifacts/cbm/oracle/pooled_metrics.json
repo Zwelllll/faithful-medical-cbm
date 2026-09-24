@@ -1,0 +1,19 @@
+{
+  "total": 658,
+  "positive": 198,
+  "negative": 460,
+  "auroc": 0.9217226613965744,
+  "macro_f1": 0.80236080115654,
+  "accuracy": 0.837386018237082,
+  "sensitivity": 0.6919191919191919,
+  "specificity": 0.9,
+  "brier": 0.10431580091727524,
+  "ece": 0.03742414106355165,
+  "tp": 137,
+  "tn": 414,
+  "fp": 46,
+  "fn": 61,
+  "threshold": 0.5,
+  "full_development_head_used": false,
+  "limitation": "Oracle uses true concepts, not deployable image predictions. This fixed linear model is an analytical reference, not a guaranteed empirical upper bound. Patient-level independence is unverifiable."
+}

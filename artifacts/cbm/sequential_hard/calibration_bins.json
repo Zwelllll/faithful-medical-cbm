@@ -1,0 +1,434 @@
+{
+  "pooled": {
+    "ece": 0.04525037642258838,
+    "bins": [
+      {
+        "lower": 0.0,
+        "upper": 0.1,
+        "count": 308,
+        "mean_probability": 0.08191853652541276,
+        "fraction_positive": 0.08116883116883117,
+        "weighted_absolute_gap": 0.00035092591159138114
+      },
+      {
+        "lower": 0.1,
+        "upper": 0.2,
+        "count": 50,
+        "mean_probability": 0.16288082984610314,
+        "fraction_positive": 0.12,
+        "weighted_absolute_gap": 0.003258421720828506
+      },
+      {
+        "lower": 0.2,
+        "upper": 0.3,
+        "count": 78,
+        "mean_probability": 0.24240888943519406,
+        "fraction_positive": 0.2948717948717949,
+        "weighted_absolute_gap": 0.006219007027439003
+      },
+      {
+        "lower": 0.3,
+        "upper": 0.4,
+        "count": 20,
+        "mean_probability": 0.34484943197395934,
+        "fraction_positive": 0.45,
+        "weighted_absolute_gap": 0.003196065897448045
+      },
+      {
+        "lower": 0.4,
+        "upper": 0.5,
+        "count": 29,
+        "mean_probability": 0.4390098365097516,
+        "fraction_positive": 0.5517241379310345,
+        "weighted_absolute_gap": 0.004967651582396965
+      },
+      {
+        "lower": 0.5,
+        "upper": 0.6,
+        "count": 42,
+        "mean_probability": 0.532415532208637,
+        "fraction_positive": 0.35714285714285715,
+        "weighted_absolute_gap": 0.011187617557390204
+      },
+      {
+        "lower": 0.6,
+        "upper": 0.7,
+        "count": 32,
+        "mean_probability": 0.6558859788645175,
+        "fraction_positive": 0.53125,
+        "weighted_absolute_gap": 0.006061324200098115
+      },
+      {
+        "lower": 0.7,
+        "upper": 0.8,
+        "count": 43,
+        "mean_probability": 0.7668820245841534,
+        "fraction_positive": 0.8604651162790697,
+        "weighted_absolute_gap": 0.006115612375199697
+      },
+      {
+        "lower": 0.8,
+        "upper": 0.9,
+        "count": 33,
+        "mean_probability": 0.8553993960459232,
+        "fraction_positive": 0.8181818181818182,
+        "weighted_absolute_gap": 0.001866535060053896
+      },
+      {
+        "lower": 0.9,
+        "upper": 1.0,
+        "count": 23,
+        "mean_probability": 0.9420040204646168,
+        "fraction_positive": 1.0,
+        "weighted_absolute_gap": 0.0020272150901425724
+      }
+    ],
+    "rule": "10 equal-width positive-class probability bins; left-inclusive, right-exclusive except p=1 in last"
+  },
+  "folds": {
+    "0": {
+      "ece": 0.04973046325097995,
+      "bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 72,
+          "mean_probability": 0.08063565222006819,
+          "fraction_positive": 0.08333333333333333,
+          "weighted_absolute_gap": 0.0011771699403338796
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 10,
+          "mean_probability": 0.166315670192038,
+          "fraction_positive": 0.1,
+          "weighted_absolute_gap": 0.004019131526790181
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 25,
+          "mean_probability": 0.26099869998036235,
+          "fraction_positive": 0.24,
+          "weighted_absolute_gap": 0.0031816212091458117
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 8,
+          "mean_probability": 0.32734229811025267,
+          "fraction_positive": 0.625,
+          "weighted_absolute_gap": 0.014431888576472597
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 5,
+          "mean_probability": 0.4387099354194479,
+          "fraction_positive": 0.4,
+          "weighted_absolute_gap": 0.0011730283460438756
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 9,
+          "mean_probability": 0.5115463347317575,
+          "fraction_positive": 0.2222222222222222,
+          "weighted_absolute_gap": 0.015781315227792834
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 9,
+          "mean_probability": 0.6526484830784712,
+          "fraction_positive": 0.5555555555555556,
+          "weighted_absolute_gap": 0.005295977864886308
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 13,
+          "mean_probability": 0.7619648640493888,
+          "fraction_positive": 0.7692307692307693,
+          "weighted_absolute_gap": 0.0005724652567148259
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 6,
+          "mean_probability": 0.8728716846554551,
+          "fraction_positive": 0.8333333333333334,
+          "weighted_absolute_gap": 0.001437758229895334
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 8,
+          "mean_probability": 0.9451352916213489,
+          "fraction_positive": 1.0,
+          "weighted_absolute_gap": 0.0026601070729042955
+        }
+      ],
+      "rule": "10 equal-width positive-class probability bins; left-inclusive, right-exclusive except p=1 in last"
+    },
+    "1": {
+      "ece": 0.05906592640943604,
+      "bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 84,
+          "mean_probability": 0.07516384841783583,
+          "fraction_positive": 0.09523809523809523,
+          "weighted_absolute_gap": 0.010219616563041151
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 7,
+          "mean_probability": 0.16396712420614867,
+          "fraction_positive": 0.2857142857142857,
+          "weighted_absolute_gap": 0.0051650310942846014
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 19,
+          "mean_probability": 0.21539179933574404,
+          "fraction_positive": 0.2631578947368421,
+          "weighted_absolute_gap": 0.005500338258308261
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 4,
+          "mean_probability": 0.3731201920936512,
+          "fraction_positive": 0.5,
+          "weighted_absolute_gap": 0.003075874131063001
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 16,
+          "mean_probability": 0.4501137928301513,
+          "fraction_positive": 0.5,
+          "weighted_absolute_gap": 0.004837450392227753
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 4,
+          "mean_probability": 0.5313141597398937,
+          "fraction_positive": 0.25,
+          "weighted_absolute_gap": 0.006819737205815605
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 6,
+          "mean_probability": 0.6703006400700416,
+          "fraction_positive": 0.5,
+          "weighted_absolute_gap": 0.006192750548001514
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 6,
+          "mean_probability": 0.754882103449742,
+          "fraction_positive": 0.8333333333333334,
+          "weighted_absolute_gap": 0.002852771995766957
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 9,
+          "mean_probability": 0.8659631726596219,
+          "fraction_positive": 0.6666666666666666,
+          "weighted_absolute_gap": 0.010870718508706648
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 10,
+          "mean_probability": 0.941727977748361,
+          "fraction_positive": 1.0,
+          "weighted_absolute_gap": 0.0035316377122205436
+        }
+      ],
+      "rule": "10 equal-width positive-class probability bins; left-inclusive, right-exclusive except p=1 in last"
+    },
+    "2": {
+      "ece": 0.08778458062455749,
+      "bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 69,
+          "mean_probability": 0.0926017655349565,
+          "fraction_positive": 0.057971014492753624,
+          "weighted_absolute_gap": 0.014570255011658526
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 17,
+          "mean_probability": 0.18758747598138967,
+          "fraction_positive": 0.058823529411764705,
+          "weighted_absolute_gap": 0.013347482266363564
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 15,
+          "mean_probability": 0.25405141437641393,
+          "fraction_positive": 0.13333333333333333,
+          "weighted_absolute_gap": 0.011041287900281763
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 4,
+          "mean_probability": 0.32925273627296786,
+          "fraction_positive": 0.25,
+          "weighted_absolute_gap": 0.0019329935676333624
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 7,
+          "mean_probability": 0.40715397633002226,
+          "fraction_positive": 0.7142857142857143,
+          "weighted_absolute_gap": 0.013109281498108808
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 11,
+          "mean_probability": 0.5364495014398564,
+          "fraction_positive": 0.36363636363636365,
+          "weighted_absolute_gap": 0.011591125096575733
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 13,
+          "mean_probability": 0.6425582083107406,
+          "fraction_positive": 0.5384615384615384,
+          "weighted_absolute_gap": 0.008251565292924564
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 16,
+          "mean_probability": 0.7662674859308661,
+          "fraction_positive": 0.875,
+          "weighted_absolute_gap": 0.010608050153086232
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 10,
+          "mean_probability": 0.857034919071277,
+          "fraction_positive": 0.9,
+          "weighted_absolute_gap": 0.002619822007848962
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 2,
+          "mean_probability": 0.9415571379337699,
+          "fraction_positive": 1.0,
+          "weighted_absolute_gap": 0.0007127178300759764
+        }
+      ],
+      "rule": "10 equal-width positive-class probability bins; left-inclusive, right-exclusive except p=1 in last"
+    },
+    "3": {
+      "ece": 0.07124335680858906,
+      "bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 83,
+          "mean_probability": 0.08098623133701216,
+          "fraction_positive": 0.08433734939759036,
+          "weighted_absolute_gap": 0.0016959926769999404
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 16,
+          "mean_probability": 0.13400798932863195,
+          "fraction_positive": 0.125,
+          "weighted_absolute_gap": 0.0008788282271836048
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 19,
+          "mean_probability": 0.23577423544267023,
+          "fraction_positive": 0.5263157894736842,
+          "weighted_absolute_gap": 0.03366030199139796
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 4,
+          "mean_probability": 0.3671896352826724,
+          "fraction_positive": 0.25,
+          "weighted_absolute_gap": 0.0028582837873822537
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 1,
+          "mean_probability": 0.4858370620929819,
+          "fraction_positive": 1.0,
+          "weighted_absolute_gap": 0.0031351398652866955
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 18,
+          "mean_probability": 0.5406296769654968,
+          "fraction_positive": 0.4444444444444444,
+          "weighted_absolute_gap": 0.010556915764505749
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 4,
+          "mean_probability": 0.6848636068746105,
+          "fraction_positive": 0.5,
+          "weighted_absolute_gap": 0.004508868460356353
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 8,
+          "mean_probability": 0.7851014286105291,
+          "fraction_positive": 1.0,
+          "weighted_absolute_gap": 0.0104828571409498
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 8,
+          "mean_probability": 0.8283665271166711,
+          "fraction_positive": 0.875,
+          "weighted_absolute_gap": 0.0022748035552843347
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 3,
+          "mean_probability": 0.9348720281214179,
+          "fraction_positive": 1.0,
+          "weighted_absolute_gap": 0.0011913653392423556
+        }
+      ],
+      "rule": "10 equal-width positive-class probability bins; left-inclusive, right-exclusive except p=1 in last"
+    }
+  }
+}

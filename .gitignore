@@ -32,3 +32,7 @@ checkpoints/*
 !checkpoints/.gitkeep
 
 .cache/
+
+!artifacts/cbm/sequential_hard/
+!artifacts/cbm/oracle/
+!artifacts/cbm/comparison/

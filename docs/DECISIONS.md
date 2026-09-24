@@ -193,3 +193,21 @@ patient-independence and OOF-to-ensemble shift limitations also remain.
 Status: Stage 8 complete; no hard/oracle CBM, interventions or CNN training/inference.
 Test set access: Exclusion IDs only, no test labels/images/performance. Cohort,
 splits, concept mappings and OOF predictions were not modified.
+
+## D014 — Stage 9 hard and oracle concept heads (2026-09-24)
+Decision: Reuse D013 logistic-regression settings and folds without tuning. Hard
+features are the seven OOF probabilities thresholded at >=0.5; oracle features are
+exactly the frozen true concept targets, checked against the processed cohort.
+Cross-fit four diagnosis heads per model, then save separate full-development
+heads that never contribute to reported metrics. Thresholds remain 0.5; ECE uses
+the same ten bins as Stage 8. Coefficients are descriptive, not causal importance.
+Result: Each model covers 658 unique development cases, with zero test overlap.
+Hard pooled AUROC 0.8401570048309178, Macro-F1 0.7503843466107617.
+Oracle pooled AUROC 0.9217226613965744, Macro-F1 0.80236080115654.
+Stage 8 metrics are read unchanged for the comparison; source hashes verified.
+Limitations: D013 non-nested development evaluation applies to hard/soft; patient
+independence remains unverifiable. Oracle is a true-concept analytical reference,
+not a deployable predictor or guaranteed empirical ceiling. Gaps are descriptive.
+Status: Stage 9 complete. See HARD_ORACLE_CBM.md for fold metrics and coefficients.
+No interventions, CNN training/inference, or test labels/images/performance access.
+Cohort, splits, mappings, OOF and Stage 8 artifacts remain unchanged.

@@ -1,0 +1,19 @@
+{
+  "total": 658,
+  "positive": 198,
+  "negative": 460,
+  "auroc": 0.8401570048309178,
+  "macro_f1": 0.7503843466107617,
+  "accuracy": 0.7978723404255319,
+  "sensitivity": 0.601010101010101,
+  "specificity": 0.8826086956521739,
+  "brier": 0.13351674514795986,
+  "ece": 0.04525037642258838,
+  "tp": 119,
+  "tn": 406,
+  "fp": 54,
+  "fn": 79,
+  "threshold": 0.5,
+  "full_development_head_used": false,
+  "limitation": "LR-head cross-fitting on existing OOF features, not fully nested CNN-plus-LR cross-validation. Concept-model early stopping used its held-out concept labels, and concept models producing LR-training features may have trained on cases in the LR-validation fold. These are development diagnostics, not a final independent test estimate. Patient-level independence is unverifiable; OOF-to-ensemble feature shift remains accepted."
+}
