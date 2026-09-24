@@ -155,3 +155,19 @@ Status: Infrastructure only; one selected fold per GPU command, folds 0-3 suppor
 No full local training, OOF assembly, CBM diagnosis, interventions or threshold tuning.
 Test set access: No images or performance accessed; existing manifest exclusion IDs
 are used only for integrity checks. Cohort, mappings and split files are unchanged.
+
+## D012 — Stage 7 saved best-epoch OOF assembly (2026-09-24)
+Context: Four external Stage 6 development runs are complete. Uploaded run/summary
+and validation CSVs verify best epochs 19,18,16,30 and their reported fold scores.
+Decision: Assemble exactly one held-out prediction per development case from each
+fold's summary-selected saved CSV. Verify frozen IDs, labels, hashes, concept order,
+run training/validation provenance and best-epoch metrics before writing outputs.
+Use processed diagnosis_binary only, fixed probability >=0.5, and no model inference,
+fold averaging or threshold optimization. Record source hashes and Git commit.
+Result: 658 unique development rows (165/165/164/164), zero test overlap or missing
+cases. Pooled macro OOF AUROC 0.8146319458412441 and Macro-F1 0.6970823357130504.
+These pooled metrics differ from the mean of fold metrics. Source commit:
+57406ca22157773fb568ed462e57113d8db6bbb4, run seven-concept-v1.
+Status: Stage 7 complete. Saved run provenance checked; checkpoint weights not loaded.
+No sequential CBM head, interventions or locked-test evaluation was implemented.
+Test set access: Exclusion IDs only; no test images, targets or performance inspected.

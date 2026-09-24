@@ -19,6 +19,12 @@ artifacts/*
 !artifacts/.gitkeep
 !artifacts/audit/
 !artifacts/stage2a/
+!artifacts/oof/
+artifacts/oof/*
+!artifacts/oof/.gitattributes
+!artifacts/oof/seven_concept_oof.csv
+!artifacts/oof/seven_concept_oof_summary.json
+!artifacts/oof/seven_concept_oof_integrity.json
 checkpoints/*
 !checkpoints/.gitkeep
 

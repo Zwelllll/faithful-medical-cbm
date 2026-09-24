@@ -1,0 +1,131 @@
+{
+  "stage": 7,
+  "total_rows": 658,
+  "rows_per_fold": {
+    "0": 165,
+    "1": 165,
+    "2": 164,
+    "3": 164
+  },
+  "diagnosis": {
+    "positive": 198,
+    "negative": 460,
+    "prevalence": 0.3009118541033435
+  },
+  "concept_order": [
+    "atypical_pigment_network",
+    "regression_structures_present",
+    "irregular_pigmentation",
+    "blue_whitish_veil_present",
+    "atypical_vascular_structures",
+    "irregular_dots_and_globules",
+    "irregular_streaks"
+  ],
+  "threshold": 0.5,
+  "concepts": {
+    "atypical_pigment_network": {
+      "positive": 177,
+      "negative": 481,
+      "prevalence": 0.2689969604863222,
+      "auroc": 0.7977730011628317,
+      "macro_f1": 0.6371905499422278
+    },
+    "regression_structures_present": {
+      "positive": 176,
+      "negative": 482,
+      "prevalence": 0.2674772036474164,
+      "auroc": 0.7728451527725386,
+      "macro_f1": 0.6835117650244156
+    },
+    "irregular_pigmentation": {
+      "positive": 205,
+      "negative": 453,
+      "prevalence": 0.31155015197568386,
+      "auroc": 0.7983093738222151,
+      "macro_f1": 0.6911212446351931
+    },
+    "blue_whitish_veil_present": {
+      "positive": 148,
+      "negative": 510,
+      "prevalence": 0.22492401215805471,
+      "auroc": 0.9254107048224695,
+      "macro_f1": 0.8177813832715948
+    },
+    "atypical_vascular_structures": {
+      "positive": 47,
+      "negative": 611,
+      "prevalence": 0.07142857142857142,
+      "auroc": 0.8092419124560365,
+      "macro_f1": 0.672636815920398
+    },
+    "irregular_dots_and_globules": {
+      "positive": 303,
+      "negative": 355,
+      "prevalence": 0.46048632218844987,
+      "auroc": 0.7935294937944499,
+      "macro_f1": 0.702262443438914
+    },
+    "irregular_streaks": {
+      "positive": 185,
+      "negative": 473,
+      "prevalence": 0.2811550151975684,
+      "auroc": 0.8053139820581681,
+      "macro_f1": 0.6750721477586097
+    }
+  },
+  "macro_auroc": 0.8146319458412441,
+  "macro_f1": 0.6970823357130504,
+  "sources": [
+    {
+      "fold": 0,
+      "best_epoch": 19,
+      "validation_file": "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\seven-concept-v1-20260924T041739Z-1-001\\seven-concept-v1\\fold_0\\validation_epoch_019.csv",
+      "validation_sha256": "299a281d86a3e98f64507f05d9ebb27ec8f7052377ebcdc0bf811b98d0af09b9",
+      "summary_sha256": "3d0cd5318e2cbef7c2d19e98f352a660b6d4164d1ecbb88bb8cd29991aa412f7",
+      "run_sha256": "badd3b8f4b60a8cdf42b95bf99f08e5a2191a35396e950f1b680ac1146c38017",
+      "run_name": "seven-concept-v1",
+      "git_commit": "57406ca22157773fb568ed462e57113d8db6bbb4",
+      "checkpoint_reference": "fold_0/best.pt",
+      "checkpoint_loaded": false
+    },
+    {
+      "fold": 1,
+      "best_epoch": 18,
+      "validation_file": "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\seven-concept-v1-20260924T041739Z-1-001\\seven-concept-v1\\fold_1\\validation_epoch_018.csv",
+      "validation_sha256": "7a7d0f1ac39809c1be076c084eba92e88ffe00dc715c74eaa2022c03c75ac178",
+      "summary_sha256": "2c9c1f0be0c9459096960511eba1636b9b71cb96be144cdc1f38faf71efcb36a",
+      "run_sha256": "2ae34fccc3f253d9fb95fb3a0b4a41c941eb5bfa639fa2bb00935511ab74ea8c",
+      "run_name": "seven-concept-v1",
+      "git_commit": "57406ca22157773fb568ed462e57113d8db6bbb4",
+      "checkpoint_reference": "fold_1/best.pt",
+      "checkpoint_loaded": false
+    },
+    {
+      "fold": 2,
+      "best_epoch": 16,
+      "validation_file": "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\seven-concept-v1-20260924T041739Z-1-001\\seven-concept-v1\\fold_2\\validation_epoch_016.csv",
+      "validation_sha256": "632b2a819524204b7419361786bc2e788e9132a506de1d3cc19f0a35a5213112",
+      "summary_sha256": "53014f44013eaf48d39762135252daad87208e9a9faabf824e4d9cc0e9062a14",
+      "run_sha256": "1e1ed56a5dd97d2bfe2bf2f79ebed3be9e8e62b568e1f3d2bdd69357fc67a0a5",
+      "run_name": "seven-concept-v1",
+      "git_commit": "57406ca22157773fb568ed462e57113d8db6bbb4",
+      "checkpoint_reference": "fold_2/best.pt",
+      "checkpoint_loaded": false
+    },
+    {
+      "fold": 3,
+      "best_epoch": 30,
+      "validation_file": "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\seven-concept-v1-20260924T041739Z-1-001\\seven-concept-v1\\fold_3\\validation_epoch_030.csv",
+      "validation_sha256": "dd86a25cc79cc3599aa268bbcce6bbfb7495365a0443c524fc6fcdbeea68f16b",
+      "summary_sha256": "1e421ae4bf9ed49033632dda358d62cbaf9b42a54b78b24b34bd0b87fb86da58",
+      "run_sha256": "c22eca4a1b6e1b347168198bf8dbef350e15df05f24588924f325b40fc668eed",
+      "run_name": "seven-concept-v1",
+      "git_commit": "57406ca22157773fb568ed462e57113d8db6bbb4",
+      "checkpoint_reference": "fold_3/best.pt",
+      "checkpoint_loaded": false
+    }
+  ],
+  "metric_note": "Pooled OOF metrics, not the arithmetic average of fold metrics; AUROC uses logits.",
+  "python": "3.14.4",
+  "scikit_learn": "1.9.0"
+}

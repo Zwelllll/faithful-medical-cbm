@@ -267,3 +267,10 @@ See [seven-concept GPU instructions](docs/SEVEN_CONCEPT_GPU.md) for the new
 configs/seven_concept.toml and train_seven_concept entry point. One B0 predicts
 seven ordered concept logits; training-only weights and validation macro AUROC
 selection use the unchanged transfer schedule. Only offline tests ran locally.
+
+## Stage 7 OOF assembly
+
+[Saved best-epoch OOF assembly](docs/OOF_ASSEMBLY.md) is complete: 658 development
+cases exactly once, no locked-test overlap. Pooled seven-concept macro AUROC is
+0.8146 and macro F1 is 0.6971 at threshold 0.5. Outputs and source provenance are in
+artifacts/oof/. No inference, training or CBM diagnosis head was required.
