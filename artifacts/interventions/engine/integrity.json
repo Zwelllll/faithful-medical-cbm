@@ -1,0 +1,133 @@
+{
+  "status": "passed",
+  "development_cases": 658,
+  "locked_test_overlap": 0,
+  "baseline_reproduction": {
+    "soft": {
+      "cases": 658,
+      "max_score_absolute_error": 8.881784197001252e-16,
+      "max_probability_absolute_error": 3.3306690738754696e-16
+    },
+    "hard": {
+      "cases": 658,
+      "max_score_absolute_error": 8.881784197001252e-16,
+      "max_probability_absolute_error": 2.220446049250313e-16
+    }
+  },
+  "fold_specific_heads_only": true,
+  "validation_ids_excluded_from_training": true,
+  "full_development_heads_used": false,
+  "concept_order": [
+    "atypical_pigment_network",
+    "regression_structures_present",
+    "irregular_pigmentation",
+    "blue_whitish_veil_present",
+    "atypical_vascular_structures",
+    "irregular_dots_and_globules",
+    "irregular_streaks"
+  ],
+  "nonselected_inputs_unchanged": true,
+  "selection_view_contains_ground_truth": false,
+  "policy_experiments_run": false,
+  "models_retrained": false,
+  "images_accessed": false,
+  "thresholds_optimized": false,
+  "source_artifacts_unchanged": true,
+  "input_sha256": {
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\data\\splits\\split_metadata.json": "b44ba9321d26caed0b0515d57211781a43fd5767fff89aeafa6159713965b612",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\stage2a\\summary.json": "341fe9cb078d16ec22102cde487777dd084870631b0a63a103bb3a0d37a1cadc",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\data\\splits\\development_ids.csv": "8a26426cafd4df776b75e2fb2ae4797a38300f6e28596d4c9cbbf678ebc13e52",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\data\\splits\\test_ids.csv": "d81a84bf8eb9ff1a64268d22b0faa89e4ad95e2eebc5dd08f62dda630192104c",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\data\\splits\\development_folds.csv": "6c8d835d2805a4382e2c95ca9b880239d69d905eb718f8445ac7b318fdff87aa",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\data\\processed\\stage2a\\cohort.csv": "154a65609d7f0df9e880c8a08ec98270f3f4d77fe3273c8e040dcf99b5a03931",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\configs\\sequential_soft.json": "3ef568a742663e481e53234041edd341dd1bc6f94d60eba9bfa3091b1c072d70",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\configs\\seven_concept.toml": "fab743bb0dd10fc6ba2f65e81616cdb75c975ebcda520255af9755842e089ba0",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\oof\\seven_concept_oof.csv": "b0363b628966111113c8d0c386ae5447df362cbaefd626bf829332471aafa87a",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\oof\\seven_concept_oof_integrity.json": "9634d5b6cb095ac7de05bf552ddcd410629d66c85ad67a93c060c7546b141d6a",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_soft\\cross_fitted_predictions.csv": "f1a3d197c20707a6371b292391db21d5e1129dc998bce10ef4b8eb1fa2d6ce20",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_soft\\pooled_metrics.json": "5bcab6f2c10d18594f23fa0394704a5ab151ef2b1f2f81012052d3ed4bd2ad05",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_soft\\full_development_model.json": "4120c496059a90f05bf84de3210e53680986248e799a7a5a27a03d0e24dc37eb",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_soft\\calibration_bins.json": "a409f64e7e8a5572d2505ecbad5ce5eee576ca731e03db6b6690197c2d29015e",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_soft\\run_config.json": "b905bf3593ac138f7c87b71377787f90890924eb338142aa096099e7630dc559",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_soft\\fold_0_model.json": "3431520586187dcf4ce96d6e3b7fcdb3abf381dc578a9c6cc4c163ba94019f8c",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_soft\\fold_1_model.json": "39818f220fa573a9ce071e1f14b112c29bb1a55f89ba5681046bba8feea287a2",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_soft\\fold_2_model.json": "07a9b9319228a23f4dd8bfb44b2684e327a48241d0385170d3fdd2983d84a7b3",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_soft\\fold_3_model.json": "e76ec9e73c134486e488e48294359ab18bfb3c86bfe2b0cd6f6abaf9caea8398",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_soft\\fold_metrics.csv": "2ba19c3e2283d70eb16bef9e92fba4e6c303b36e545a36944492bfdd8c1a789e",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_soft\\integrity.json": "27a193f1465205eb97663c75d93e40a480eb67ee946dccfa7dbd8758f416655e",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\configs\\binary_cbm.json": "606a67e9bde9897fe81983237f5811cf3853b95f47481ca728de2de69fd557c7",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\configs\\intervention_engine.json": "9786e7517387a3c3459e2cb5894e54c3cf77b2dc39f169df997047c53c31c3a2",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_hard\\calibration_bins.json": "97f201a3e5fb03fe01f3d4354818698032b72175703f486b8b7212cc4bab9f1d",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_hard\\cross_fitted_predictions.csv": "cc366e9750908a8bd1d2fa9283666fe0c8b7dc4a72f38bece4e0e4d41cde046c",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_hard\\fold_0_model.json": "fc37fca0573a7373aa112baf702f1af5a1ee3df9a1c0ad10a22ab9a8567432d9",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_hard\\fold_1_model.json": "e9cc0fbd6b6bbc4ef3a052aafd7aa0072c3d8128d5c18e920fd0085413ecbfb2",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_hard\\fold_2_model.json": "bc0d045d503223574b3974892abcf6f5866fe35aed5df29c3972e38bf55e12bc",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_hard\\fold_3_model.json": "ff8fe84f4cb162c569165785c6f14c43e3281d96394fe938b51a2eed5195dba5",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_hard\\fold_metrics.csv": "e657220ebc94e86842644a01f60cb4b77f8b7d7eca664e46f4cd7b5ffa3c4e35",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_hard\\full_development_model.json": "5c30b59f37f719dac68fd496a090d1c5e326e2033bb095cc78e1fc6bff406525",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_hard\\pooled_metrics.json": "fdfa89ea18bcd6035ac884b3b95094cf29f0034c576baaeb5083602eeed2806d",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_hard\\run_config.json": "ffdba8da5299231ca5b0427078ca8fc853f419ac1889f85e2ff31782878e1bc2",
+    "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\artifacts\\cbm\\sequential_hard\\integrity.json": "bdbfc5d603f6d5de02ad47af2f7b654e3c45024c048486b170d002e3a645fda6"
+  },
+  "output_sha256": {
+    "hard_forced_value_counterfactuals.csv": "ed9a15d2d35d4e5ba18d711cf290aab2d2100d4154917ec04aa9b6c6233e4ea5",
+    "hard_single_concept_ground_truth_corrections.csv": "ab32d59d272270695224b99b44f69c05e7547470c0bebadb4039fcb702e80042",
+    "soft_forced_value_counterfactuals.csv": "9831a328dda49b7426b5c403eaee8fc93393e0379d05225e14fbd5ef657d4bbf",
+    "soft_single_concept_ground_truth_corrections.csv": "2c0f57913bd14f974f415b04a6e5767a56b66a69cc0ed45ecbdd5469f5150f00",
+    "summary.json": "aa3199ce0afd52b67d1ee729f65f21f3bc693e74dabed3baac96abba672dbcd3"
+  },
+  "source_sha256": {
+    "src\\faithful_medical_cbm\\interventions\\build_engine_artifacts.py": "ec571db9dca6fd1ee89d49cc272bdb378ed7251c37370f4aed3fe8d8a51a6866",
+    "src\\faithful_medical_cbm\\interventions\\engine.py": "d233e75353e37172b5f26d6d696feb21c7dc440bdd39aca3b98eb7ebd121701f",
+    "src\\faithful_medical_cbm\\training\\train_binary_cbm.py": "8e7b610571a94d49a157d7983b6cf6004b9f790db8c15514a5083d269834b8a3",
+    "src\\faithful_medical_cbm\\training\\train_sequential_soft.py": "bcdc78e15977a822db89b5b4da7e1f6f5b34eb9e230e059450ce699ff2b95542",
+    "src\\faithful_medical_cbm\\evaluation\\assemble_oof.py": "633bd1c2169a1c5804e54c8aa681f0a9a10a6be2ac1c6ac35a2f997944ba0d66",
+    "src\\faithful_medical_cbm\\models\\binary_cbm.py": "15759e735f6e3c417bb5c2cf8f391d03c2da7e069ba0811bde1e68895f76bd0e",
+    "src\\faithful_medical_cbm\\models\\soft_cbm.py": "306e54fe4f2ca6e16649032240ecb9a1181508737d8fa0ed978a96582c402a7a"
+  },
+  "git_commit": "46c2b093187a182df7072d8005c5b097b5001f88",
+  "git_working_tree_dirty": true,
+  "python": "3.14.4",
+  "packages": {
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.0"
+  },
+  "schemas": {
+    "correction": [
+      "case_num",
+      "validation_fold",
+      "diagnosis_binary",
+      "concept_name",
+      "original_concept_value",
+      "ground_truth_concept_value",
+      "concept_was_wrong",
+      "original_diagnosis_score",
+      "intervened_diagnosis_score",
+      "original_melanoma_probability",
+      "intervened_melanoma_probability",
+      "signed_probability_change",
+      "absolute_probability_change",
+      "original_predicted_diagnosis",
+      "intervened_predicted_diagnosis",
+      "diagnosis_prediction_changed"
+    ],
+    "forced_value": [
+      "case_num",
+      "validation_fold",
+      "diagnosis_binary",
+      "concept_name",
+      "original_concept_value",
+      "forced_value",
+      "original_diagnosis_score",
+      "intervened_diagnosis_score",
+      "original_melanoma_probability",
+      "intervened_melanoma_probability",
+      "signed_probability_change",
+      "absolute_probability_change",
+      "original_predicted_diagnosis",
+      "intervened_predicted_diagnosis",
+      "diagnosis_prediction_changed"
+    ]
+  }
+}

@@ -211,3 +211,23 @@ not a deployable predictor or guaranteed empirical ceiling. Gaps are descriptive
 Status: Stage 9 complete. See HARD_ORACLE_CBM.md for fold metrics and coefficients.
 No interventions, CNN training/inference, or test labels/images/performance access.
 Cohort, splits, mappings, OOF and Stage 8 artifacts remain unchanged.
+
+## D015 — Stage 10 cross-fitted intervention engine (2026-09-24)
+Decision: Reuse each development case's saved soft/hard fold-specific LR head,
+verifying held-out membership and baseline score/probability reproduction with
+absolute tolerance 1e-12, relative tolerance 0. No model retraining or inference.
+Soft corrections replace selected OOF probabilities with frozen binary targets;
+hard corrections replace selected thresholded inputs. All other inputs stay fixed.
+Forced binary values are separately labelled counterfactuals, not clinician corrections.
+Separate a detached truth-free selection view from the target-reading executor.
+Only selected targets are fetched after selection; no policies are implemented.
+Concept error means probability >=0.5 disagrees with the frozen target. Soft
+corrections may also change threshold-correct probabilities by snapping to 0/1.
+Result: Per model, 4,606 correction rows and 9,212 forced-value rows. Both have
+967 wrong concepts. Wrong-concept correction mean absolute probability effects
+are 0.1503743994 (soft) and 0.1401182101 (hard); flips 197/967 and 168/967.
+These are descriptive model-input effects, not causal importance or necessarily
+clinical improvements. D013/D014 evaluation limitations remain unchanged.
+Status: Stage 10 complete; no policy experiments or intervention-aware training.
+Full-development heads never used. Test exclusion IDs only; no test targets/images.
+Stages 7-9 artifacts, cohort, splits and mappings unchanged. See INTERVENTION_ENGINE.md.

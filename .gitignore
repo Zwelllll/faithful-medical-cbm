@@ -36,3 +36,7 @@ checkpoints/*
 !artifacts/cbm/sequential_hard/
 !artifacts/cbm/oracle/
 !artifacts/cbm/comparison/
+
+!artifacts/interventions/
+artifacts/interventions/*
+!artifacts/interventions/engine/

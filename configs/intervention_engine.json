@@ -1,0 +1,8 @@
+{
+  "stage": 10,
+  "stage9_config": "configs/binary_cbm.json",
+  "hard_outputs": "artifacts/cbm/sequential_hard",
+  "output_dir": "artifacts/interventions/engine",
+  "reproduction_atol": 1e-12,
+  "reproduction_rtol": 0.0
+}

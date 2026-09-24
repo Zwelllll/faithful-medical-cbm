@@ -287,3 +287,5 @@ OOF features, not fully nested validation of the entire pipeline. Test images
 remain untouched; no hard/oracle model or interventions have been implemented.
 
 Stage 9 hard/oracle CBM results, reproduction and limitations: [docs/HARD_ORACLE_CBM.md](docs/HARD_ORACLE_CBM.md).
+
+Stage 10 cross-fitted correction and forced-value engine: [docs/INTERVENTION_ENGINE.md](docs/INTERVENTION_ENGINE.md). No intervention-policy experiments run.
