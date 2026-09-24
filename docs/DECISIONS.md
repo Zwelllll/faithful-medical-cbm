@@ -171,3 +171,25 @@ These pooled metrics differ from the mean of fold metrics. Source commit:
 Status: Stage 7 complete. Saved run provenance checked; checkpoint weights not loaded.
 No sequential CBM head, interventions or locked-test evaluation was implemented.
 Test set access: Exclusion IDs only; no test images, targets or performance inspected.
+
+## D013 — Stage 8 cross-fitted sequential soft CBM (2026-09-24)
+Decision: Use exactly the seven frozen-order OOF probability columns as the only
+inputs to scikit-learn LogisticRegression. Fixed L2, C=1, lbfgs, intercept, no class
+weighting/scaling, max_iter=1000, tol=1e-8, random_state=42. No search or tuning.
+Cross-fit four LR heads on the existing validation_fold assignments; save each
+case's held-out score/probability and report AUROC, binary Macro-F1, accuracy,
+sensitivity, specificity, Brier and positive-probability ECE (10 equal-width bins).
+Threshold is fixed at probability >=0.5. Coefficients are descriptive, not causal
+concept importance. After CV evaluation, fit/save a separately labelled
+FULL-DEVELOPMENT SOFT CBM HEAD; never use it for reported development predictions.
+Result: 658 unique cross-fitted diagnosis predictions; pooled AUROC
+0.8635375494071147, Macro-F1 0.772002772002772, Brier 0.12792545989565157,
+ECE 0.024853814067755744. Configuration was chosen before these results.
+Limitation: This is LR-head cross-fitting on fixed OOF features, not fully nested
+CNN-plus-LR validation. Concept early stopping used held-out concept labels, and
+CNNs producing LR-training features can include cases in the LR-validation fold.
+Report these as development diagnostics, not an independent test estimate. Existing
+patient-independence and OOF-to-ensemble shift limitations also remain.
+Status: Stage 8 complete; no hard/oracle CBM, interventions or CNN training/inference.
+Test set access: Exclusion IDs only, no test labels/images/performance. Cohort,
+splits, concept mappings and OOF predictions were not modified.

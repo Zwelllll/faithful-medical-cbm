@@ -25,6 +25,9 @@ artifacts/oof/*
 !artifacts/oof/seven_concept_oof.csv
 !artifacts/oof/seven_concept_oof_summary.json
 !artifacts/oof/seven_concept_oof_integrity.json
+!artifacts/cbm/
+artifacts/cbm/*
+!artifacts/cbm/sequential_soft/
 checkpoints/*
 !checkpoints/.gitkeep
 

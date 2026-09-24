@@ -1,0 +1,30 @@
+{
+  "stage": 8,
+  "frozen_data_config": "configs/seven_concept.toml",
+  "input_oof": "artifacts/oof/seven_concept_oof.csv",
+  "input_integrity": "artifacts/oof/seven_concept_oof_integrity.json",
+  "output_dir": "artifacts/cbm/sequential_soft",
+  "feature_columns": [
+    "atypical_pigment_network_probability",
+    "regression_structures_present_probability",
+    "irregular_pigmentation_probability",
+    "blue_whitish_veil_present_probability",
+    "atypical_vascular_structures_probability",
+    "irregular_dots_and_globules_probability",
+    "irregular_streaks_probability"
+  ],
+  "target": "diagnosis_binary",
+  "threshold": 0.5,
+  "ece_bins": 10,
+  "preprocessing": "none",
+  "logistic_regression": {
+    "penalty": "l2",
+    "C": 1.0,
+    "solver": "lbfgs",
+    "fit_intercept": true,
+    "class_weight": null,
+    "max_iter": 1000,
+    "tol": 1e-08,
+    "random_state": 42
+  }
+}

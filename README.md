@@ -274,3 +274,14 @@ selection use the unchanged transfer schedule. Only offline tests ran locally.
 cases exactly once, no locked-test overlap. Pooled seven-concept macro AUROC is
 0.8146 and macro F1 is 0.6971 at threshold 0.5. Outputs and source provenance are in
 artifacts/oof/. No inference, training or CBM diagnosis head was required.
+
+## Stage 8 sequential soft CBM
+
+[Sequential soft CBM results and protocol](docs/SEQUENTIAL_SOFT_CBM.md) use only the
+seven OOF probability columns and fixed L2 logistic regression. Four cross-fitted
+LR heads produce 658 held-out diagnosis predictions (pooled AUROC 0.8635,
+Macro-F1 0.7720, Brier 0.1279, ECE 0.0249). The full-development head is saved
+separately and excluded from these metrics. Artifacts are under
+artifacts/cbm/sequential_soft/. This is LR-level cross-fitting on the existing
+OOF features, not fully nested validation of the entire pipeline. Test images
+remain untouched; no hard/oracle model or interventions have been implemented.

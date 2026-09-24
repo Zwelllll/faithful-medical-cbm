@@ -1,0 +1,21 @@
+{
+  "evaluation": "Cross-fitted LR heads on existing development OOF probabilities",
+  "total": 658,
+  "positive": 198,
+  "negative": 460,
+  "auroc": 0.8635375494071147,
+  "macro_f1": 0.772002772002772,
+  "accuracy": 0.8206686930091185,
+  "sensitivity": 0.5959595959595959,
+  "specificity": 0.9173913043478261,
+  "brier": 0.12792545989565157,
+  "ece": 0.024853814067755744,
+  "tp": 118,
+  "tn": 422,
+  "fp": 38,
+  "fn": 80,
+  "threshold": 0.5,
+  "full_development_head_used": false,
+  "ece_definition": "10 equal-width positive-class probability bins; left-inclusive, right-exclusive except p=1 in last",
+  "limitation": "LR-head cross-fitting on existing OOF features, not fully nested CNN-plus-LR cross-validation. Concept-model early stopping used its held-out concept labels, and concept models producing LR-training features may have trained on cases in the LR-validation fold. These are development diagnostics, not a final independent test estimate. Patient-level independence is unverifiable; OOF-to-ensemble feature shift remains accepted."
+}
