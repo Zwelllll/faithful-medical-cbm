@@ -40,3 +40,5 @@ checkpoints/*
 !artifacts/interventions/
 artifacts/interventions/*
 !artifacts/interventions/engine/
+
+!artifacts/interventions/policies/

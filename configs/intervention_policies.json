@@ -1,0 +1,13 @@
+{
+  "stage": 11,
+  "engine_config": "configs/intervention_engine.json",
+  "engine_artifacts": "artifacts/interventions/engine",
+  "output_dir": "artifacts/interventions/policies",
+  "seed": 42,
+  "random_repetitions": 100,
+  "budgets": [0, 1, 2, 3, 4, 5, 6, 7],
+  "uncertainty": "1 - 2 * abs(q - 0.5)",
+  "impact": "abs(p_force_1_current - p_force_0_current)",
+  "tie_break": "frozen concept order",
+  "sd_ddof": 1
+}

@@ -231,3 +231,30 @@ clinical improvements. D013/D014 evaluation limitations remain unchanged.
 Status: Stage 10 complete; no policy experiments or intervention-aware training.
 Full-development heads never used. Test exclusion IDs only; no test targets/images.
 Stages 7-9 artifacts, cohort, splits and mappings unchanged. See INTERVENTION_ENGINE.md.
+
+## D016 — Stage 11 frozen intervention policies (2026-09-24)
+User-authorized Stage 11 definition supersedes PROJECT_SPEC section 15's earlier
+entropy/expected-impact formula for this experiment: active uncertainty is
+1 - 2*abs(original q - 0.5); impact is abs(p_force_1 - p_force_0) evaluated against
+the current cumulative state using the case's cross-fitted soft/hard head. Select
+maximum uncertainty*impact, ties by frozen concept order, then reveal target.
+The detached active-selection API receives no ground truth or diagnosis labels.
+Random-error and confidently-wrong are explicitly ORACLE / NON-DEPLOYABLE.
+Both select only original threshold errors; confidence is abs(original q - 0.5).
+Random policy uses seed 42, 100 independent PCG64 SeedSequence([42,rep]) streams;
+random orders paired across soft/hard. Stop/pad oracles when no errors remain.
+Evaluate budgets 0..7, fixed diagnosis/concept thresholds 0.5, Stage 8 ECE bins.
+Report cumulative query precision, improvement and harm with separate denominators.
+Use sample SD across random repetitions; raw trapezoidal areas over 0..7 are
+solely descriptive. Oracle error knowledge does not guarantee optimal diagnosis.
+Results: active k=7 AUROC soft 0.9046277997 / hard 0.9028491436; accuracy soft
+0.8267477204 / hard 0.8191489362. Soft active improves 71/118 initially wrong
+and harms 67/540 initially right diagnoses; hard improves 78/133, harms 64/525.
+Soft oracles leave already-correct probabilities untouched, unlike all-query active;
+thus their endpoints differ. No winner or causal importance interpretation.
+Storage: exact random selection orders plus frozen source hashes permit complete
+trajectory replay; deterministic policies store all steps. Full curves and AUCs
+are in artifacts/interventions/policies/; see INTERVENTION_POLICIES.md.
+Status: Stage 11 complete. No model retraining, intervention-aware heads, joint
+CBMs, threshold tuning, test images/labels, or changes to Stage 7-10 artifacts.
+Existing non-nested development and patient-independence limitations remain.
