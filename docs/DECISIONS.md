@@ -137,3 +137,21 @@ Context: User reports completed external baseline development AUROCs 0.8833, 0.8
 locally for verification; these are development results only.
 Test set access: No images or performance accessed. Only frozen exclusion IDs are
 read by existing loader integrity checks. Patient-level independence remains unverifiable.
+
+## D011 — Stage 6 seven-concept development infrastructure (2026-09-24)
+Context: The user considers Stage 5 PASSED after external GPU training: Fold 0
+atypical_pigment_network best validation AUROC 0.8449, best Macro-F1 0.7471,
+best epoch 15, 22 epochs completed, early stopped, locked_test_used=false.
+These are user-reported development results; external run artifacts were not supplied
+locally for verification. This resolves D010's pending external sanity run.
+Decision: Extend the concept output to all seven D007 targets in exactly that order,
+sharing one EfficientNet-B0. Per-concept negative/positive weights use only the selected
+fold's training labels. Keep D010's transfer schedule unchanged. Use the arithmetic
+mean of all seven validation AUROCs for selection and early stopping, report each
+concept's AUROC/Macro-F1 and the seven-concept mean F1, and fix probability >=0.5
+as positive. Fail on any single-class concept subset instead of omitting concepts
+from the selection metric. Save raw per-epoch validation outputs before metrics.
+Status: Infrastructure only; one selected fold per GPU command, folds 0-3 supported.
+No full local training, OOF assembly, CBM diagnosis, interventions or threshold tuning.
+Test set access: No images or performance accessed; existing manifest exclusion IDs
+are used only for integrity checks. Cohort, mappings and split files are unchanged.

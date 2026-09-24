@@ -1,0 +1,68 @@
+# Seed 42 is frozen for Stage 2B. Image/batch defaults remain provisional.
+[reproducibility]
+seed = 42
+deterministic = true
+
+[paths]
+raw = "data/raw"
+processed = "data/processed"
+splits = "data/splits"
+artifacts = "artifacts"
+checkpoints = "checkpoints"
+
+[experiment]
+image_size = 224
+batch_size = 32
+num_folds = 4
+model_name = "efficientnet_b0"
+
+[splitting]
+test_size = 0.20
+cohort = "stage2a/cohort.csv" # relative to paths.processed
+cohort_summary = "stage2a/summary.json" # relative to paths.artifacts
+
+[data_loading]
+image_root = "release_v0/images" # relative to paths.raw; derm_path only
+num_workers = 0
+pin_memory = false
+
+[augmentation]
+horizontal_flip_probability = 0.5
+vertical_flip_probability = 0.5
+rotation_degrees = 15.0
+crop_scale = [0.85, 1.0]
+crop_ratio = [0.9, 1.1]
+brightness = 0.1
+contrast = 0.1
+saturation = 0.1
+
+[normalization]
+mean = [0.485, 0.456, 0.406]
+std = [0.229, 0.224, 0.225]
+
+[concept_training]
+threshold = 0.5
+selection_metric = "validation_macro_auroc"
+pretrained = true
+optimizer = "adamw" # supported: adamw, adam, sgd
+learning_rate = 0.001
+finetune_learning_rate = 0.0001
+weight_decay = 0.0001
+momentum = 0.9 # SGD only
+epochs = 30
+head_epochs = 3
+unfreeze_last_blocks = 3
+patience = 7
+min_delta = 0.0 # absolute validation AUROC improvement
+
+[concepts]
+target_order = ["atypical_pigment_network", "regression_structures_present", "irregular_pigmentation", "blue_whitish_veil_present", "atypical_vascular_structures", "irregular_dots_and_globules", "irregular_streaks"]
+names = [
+  "atypical pigment network",
+  "regression structures",
+  "irregular pigmentation",
+  "blue-whitish veil",
+  "atypical vascular structures",
+  "irregular dots/globules",
+  "irregular streaks",
+]

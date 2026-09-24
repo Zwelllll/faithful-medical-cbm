@@ -258,3 +258,12 @@ configs/concept_sanity.toml trains only atypical_pigment_network on Fold 0, with
 training-derived weighted BCE, fixed threshold 0.5, validation AUROC and Macro-F1.
 The user reports all four baseline GPU development runs completed externally; no
 concept GPU run has been performed locally. Cohort, mappings and splits are unchanged.
+
+## Stage 6 seven-concept infrastructure
+
+The user reports the external Stage 5 sanity run PASSED (AUROC 0.8449, Macro-F1
+0.7471, best epoch 15; early stopped after 22 epochs; locked test unused).
+See [seven-concept GPU instructions](docs/SEVEN_CONCEPT_GPU.md) for the new
+configs/seven_concept.toml and train_seven_concept entry point. One B0 predicts
+seven ordered concept logits; training-only weights and validation macro AUROC
+selection use the unchanged transfer schedule. Only offline tests ran locally.
