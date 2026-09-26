@@ -1,0 +1,382 @@
+{
+  "stage": 13,
+  "total_rows_per_model": 658,
+  "rows_per_fold": [
+    165,
+    165,
+    164,
+    164
+  ],
+  "concept_order": [
+    "atypical_pigment_network",
+    "regression_structures_present",
+    "irregular_pigmentation",
+    "blue_whitish_veil_present",
+    "atypical_vascular_structures",
+    "irregular_dots_and_globules",
+    "irregular_streaks"
+  ],
+  "sources": [
+    {
+      "model": "joint_soft",
+      "fold": 0,
+      "best_epoch": 13,
+      "run_name": "joint-soft-v1",
+      "prediction_file": "artifacts\\joint_soft\\joint-soft-v1\\fold_0\\validation_epoch_013.csv",
+      "prediction_sha256": "d91783ddb18aaed26549617af66266dfd9a871b14e14a6ef56bd8a051fdd891d",
+      "run_sha256": "d5049aab011eb26e42cdff92f9b958d8d427e66d99814cc3668aef037b378d67",
+      "summary_sha256": "f1a06bc3a286757dbc3eb4e64221788eeae2a84758aaa353bb6e1e13058e00db",
+      "source_git_commit": "4e27cf4c8f53eec25cec0949a07ccf27ce9110ca"
+    },
+    {
+      "model": "joint_soft",
+      "fold": 1,
+      "best_epoch": 15,
+      "run_name": "joint-soft-v1",
+      "prediction_file": "artifacts\\joint_soft\\joint-soft-v1\\fold_1\\validation_epoch_015.csv",
+      "prediction_sha256": "85abc28a6b89152005861e46e7a688d2006f4ff381dfab9f350107164f92e6ad",
+      "run_sha256": "40a54937ebf6d6ed3bde5604b86798569c2c1ece0a9df0ea4410a7c1d2be81af",
+      "summary_sha256": "50c0faccfaf19b57e5fa814006576d8385f2ec681a031129e859f9b4c425a7be",
+      "source_git_commit": "4e27cf4c8f53eec25cec0949a07ccf27ce9110ca"
+    },
+    {
+      "model": "joint_soft",
+      "fold": 2,
+      "best_epoch": 16,
+      "run_name": "joint-soft-v1",
+      "prediction_file": "artifacts\\joint_soft\\joint-soft-v1\\fold_2\\validation_epoch_016.csv",
+      "prediction_sha256": "8ea16951099be41b85db091cb3d8ba60d17fa79d126b16af01438cb81e8edbbb",
+      "run_sha256": "62b7112b3dcfde7e8138515702338d6a7b27bbdeef920838f0826a76da3643de",
+      "summary_sha256": "29544095f04d398a34709aac1968a8d8587725f7ea614e5842dc7d6941a5a52e",
+      "source_git_commit": "4e27cf4c8f53eec25cec0949a07ccf27ce9110ca"
+    },
+    {
+      "model": "joint_soft",
+      "fold": 3,
+      "best_epoch": 14,
+      "run_name": "joint-soft-v1",
+      "prediction_file": "artifacts\\joint_soft\\joint-soft-v1\\fold_3\\validation_epoch_014.csv",
+      "prediction_sha256": "540537a13e061fe4621004580f2fef44d0cffea4a6b03ae19c8d9ab64943970d",
+      "run_sha256": "94768595507498e8094ecb8ac12ff830c23b025edeb9b5958d737757cd2fb76d",
+      "summary_sha256": "7e3d915060c3136cc88dfb3f18b8664acb942014d11cbf19e44a402d3fa33f2b",
+      "source_git_commit": "4e27cf4c8f53eec25cec0949a07ccf27ce9110ca"
+    },
+    {
+      "model": "joint_hard_ste",
+      "fold": 0,
+      "best_epoch": 6,
+      "run_name": "joint-hard-v1",
+      "prediction_file": "artifacts\\joint_hard\\joint-hard-v1\\fold_0\\validation_epoch_006.csv",
+      "prediction_sha256": "07e100a969c3352f897e19f0c88f4261be9e8878c50ef5bf25dd5a0271f21421",
+      "run_sha256": "da0b90b3635db52e2b8b98254783026dcbbf32df93fa81191090cef653cadcf4",
+      "summary_sha256": "1f0ea83b4d111926913ac9ff8a0ea6ce8fe8900574a60abde1775869e5c7c412",
+      "source_git_commit": "4e27cf4c8f53eec25cec0949a07ccf27ce9110ca"
+    },
+    {
+      "model": "joint_hard_ste",
+      "fold": 1,
+      "best_epoch": 18,
+      "run_name": "joint-hard-v1",
+      "prediction_file": "artifacts\\joint_hard\\joint-hard-v1\\fold_1\\validation_epoch_018.csv",
+      "prediction_sha256": "b01108c1851ae6273cd0c019604ebac90d241887b157ac291d65f2d081245bad",
+      "run_sha256": "12d58ab08a0650c4c06a7ae56a089ac1fa21c663f34ab150b3f359d8e986eca3",
+      "summary_sha256": "6ca63d219803fbca9d21ac881f1a46a03a1e16b4708a60686d20031b024bb99f",
+      "source_git_commit": "4e27cf4c8f53eec25cec0949a07ccf27ce9110ca"
+    },
+    {
+      "model": "joint_hard_ste",
+      "fold": 2,
+      "best_epoch": 14,
+      "run_name": "joint-hard-v1",
+      "prediction_file": "artifacts\\joint_hard\\joint-hard-v1\\fold_2\\validation_epoch_014.csv",
+      "prediction_sha256": "565a84a672be4e15ced37c331006a48f42d3ace2c3a563d41995fa58d2c4e490",
+      "run_sha256": "5b163e97b0dbec05209094f1b2538fd4a3f3ccaa44be6c83889138371b7a5432",
+      "summary_sha256": "0c476d9907b371272e55b83a2d812e9ce47aefd50073a5c143b475a3bb600a00",
+      "source_git_commit": "4e27cf4c8f53eec25cec0949a07ccf27ce9110ca"
+    },
+    {
+      "model": "joint_hard_ste",
+      "fold": 3,
+      "best_epoch": 16,
+      "run_name": "joint-hard-v1",
+      "prediction_file": "artifacts\\joint_hard\\joint-hard-v1\\fold_3\\validation_epoch_016.csv",
+      "prediction_sha256": "b9bdb6f666ee1850736b13bfc4d8505e765f894b3d9e463228fbb7409d936e78",
+      "run_sha256": "703602a0082166eeed4696e1423e3290ec73904b853124a84ec5305ccd3f11d0",
+      "summary_sha256": "46c76e2f757fbe8b9c422c4471ddea0c8698a6abfb055ade4b11900c06c07e1f",
+      "source_git_commit": "4e27cf4c8f53eec25cec0949a07ccf27ce9110ca"
+    }
+  ],
+  "diagnosis_comparison": [
+    {
+      "model": "sequential_soft",
+      "auroc": 0.8635375494071147,
+      "macro_f1": 0.772002772002772,
+      "accuracy": 0.8206686930091185,
+      "sensitivity": 0.5959595959595959,
+      "specificity": 0.9173913043478261,
+      "brier": 0.12792545989565157,
+      "ece": 0.024853814067755744
+    },
+    {
+      "model": "sequential_hard",
+      "auroc": 0.8401570048309178,
+      "macro_f1": 0.7503843466107617,
+      "accuracy": 0.7978723404255319,
+      "sensitivity": 0.601010101010101,
+      "specificity": 0.8826086956521739,
+      "brier": 0.13351674514795986,
+      "ece": 0.04525037642258838
+    },
+    {
+      "model": "joint_soft",
+      "auroc": 0.8695103205972771,
+      "macro_f1": 0.357451312753322,
+      "accuracy": 0.3844984802431611,
+      "sensitivity": 0.9797979797979798,
+      "specificity": 0.1282608695652174,
+      "brier": 0.2443096729281755,
+      "ece": 0.30229019493679865
+    },
+    {
+      "model": "joint_hard_ste",
+      "auroc": 0.8365612648221343,
+      "macro_f1": 0.3139724823283808,
+      "accuracy": 0.35106382978723405,
+      "sensitivity": 0.9696969696969697,
+      "specificity": 0.08478260869565217,
+      "brier": 0.23996964582331715,
+      "ece": 0.29707841190161316
+    },
+    {
+      "model": "oracle",
+      "auroc": 0.9217226613965744,
+      "macro_f1": 0.80236080115654,
+      "accuracy": 0.837386018237082,
+      "sensitivity": 0.6919191919191919,
+      "specificity": 0.9,
+      "brier": 0.10431580091727524,
+      "ece": 0.03742414106355165
+    }
+  ],
+  "diagnosis_gaps": {
+    "joint_soft_minus_sequential_soft": {
+      "auroc": 0.005972771190162374,
+      "macro_f1": -0.41455145924945
+    },
+    "joint_hard_ste_minus_sequential_hard": {
+      "auroc": -0.003595740008783488,
+      "macro_f1": -0.4364118642823809
+    },
+    "oracle_minus_joint_soft": {
+      "auroc": 0.052212340799297374,
+      "macro_f1": 0.444909488403218
+    },
+    "oracle_minus_joint_hard_ste": {
+      "auroc": 0.0851613965744401,
+      "macro_f1": 0.48838831882815914
+    }
+  },
+  "concept_comparison": [
+    {
+      "model": "sequential_concepts",
+      "concept": "atypical_pigment_network",
+      "auroc": 0.7977730011628317,
+      "macro_f1": 0.6371905499422278
+    },
+    {
+      "model": "sequential_concepts",
+      "concept": "regression_structures_present",
+      "auroc": 0.7728451527725386,
+      "macro_f1": 0.6835117650244156
+    },
+    {
+      "model": "sequential_concepts",
+      "concept": "irregular_pigmentation",
+      "auroc": 0.7983093738222151,
+      "macro_f1": 0.6911212446351931
+    },
+    {
+      "model": "sequential_concepts",
+      "concept": "blue_whitish_veil_present",
+      "auroc": 0.9254107048224695,
+      "macro_f1": 0.8177813832715948
+    },
+    {
+      "model": "sequential_concepts",
+      "concept": "atypical_vascular_structures",
+      "auroc": 0.8092419124560365,
+      "macro_f1": 0.672636815920398
+    },
+    {
+      "model": "sequential_concepts",
+      "concept": "irregular_dots_and_globules",
+      "auroc": 0.7935294937944499,
+      "macro_f1": 0.702262443438914
+    },
+    {
+      "model": "sequential_concepts",
+      "concept": "irregular_streaks",
+      "auroc": 0.8053139820581681,
+      "macro_f1": 0.6750721477586097
+    },
+    {
+      "model": "sequential_concepts",
+      "concept": "macro_mean",
+      "auroc": 0.8146319458412441,
+      "macro_f1": 0.6970823357130504
+    },
+    {
+      "model": "joint_soft",
+      "concept": "atypical_pigment_network",
+      "auroc": 0.7966101694915254,
+      "macro_f1": 0.6305069171473786
+    },
+    {
+      "model": "joint_soft",
+      "concept": "regression_structures_present",
+      "auroc": 0.7588881554130517,
+      "macro_f1": 0.6673506408540756
+    },
+    {
+      "model": "joint_soft",
+      "concept": "irregular_pigmentation",
+      "auroc": 0.8011629785172024,
+      "macro_f1": 0.6944482663731426
+    },
+    {
+      "model": "joint_soft",
+      "concept": "blue_whitish_veil_present",
+      "auroc": 0.9226285108638049,
+      "macro_f1": 0.8152095824026542
+    },
+    {
+      "model": "joint_soft",
+      "concept": "atypical_vascular_structures",
+      "auroc": 0.7862938329212662,
+      "macro_f1": 0.6421927064050351
+    },
+    {
+      "model": "joint_soft",
+      "concept": "irregular_dots_and_globules",
+      "auroc": 0.7990331427508948,
+      "macro_f1": 0.64617133726647
+    },
+    {
+      "model": "joint_soft",
+      "concept": "irregular_streaks",
+      "auroc": 0.8016799040054855,
+      "macro_f1": 0.7141179184931938
+    },
+    {
+      "model": "joint_soft",
+      "concept": "macro_mean",
+      "auroc": 0.8094709562804615,
+      "macro_f1": 0.6871424812774214
+    },
+    {
+      "model": "joint_hard_ste",
+      "concept": "atypical_pigment_network",
+      "auroc": 0.7579078426536054,
+      "macro_f1": 0.6291315212468926
+    },
+    {
+      "model": "joint_hard_ste",
+      "concept": "regression_structures_present",
+      "auroc": 0.7431983213881554,
+      "macro_f1": 0.6647987773815589
+    },
+    {
+      "model": "joint_hard_ste",
+      "concept": "irregular_pigmentation",
+      "auroc": 0.7837721423571851,
+      "macro_f1": 0.701043343077041
+    },
+    {
+      "model": "joint_hard_ste",
+      "concept": "blue_whitish_veil_present",
+      "auroc": 0.9044647588765236,
+      "macro_f1": 0.793656756966545
+    },
+    {
+      "model": "joint_hard_ste",
+      "concept": "atypical_vascular_structures",
+      "auroc": 0.810216944666922,
+      "macro_f1": 0.6187794763376159
+    },
+    {
+      "model": "joint_hard_ste",
+      "concept": "irregular_dots_and_globules",
+      "auroc": 0.7798633384465207,
+      "macro_f1": 0.6730603834212312
+    },
+    {
+      "model": "joint_hard_ste",
+      "concept": "irregular_streaks",
+      "auroc": 0.7819896005942517,
+      "macro_f1": 0.7165916534417918
+    },
+    {
+      "model": "joint_hard_ste",
+      "concept": "macro_mean",
+      "auroc": 0.794487564140452,
+      "macro_f1": 0.6852945588389537
+    }
+  ],
+  "fold_means": {
+    "joint_soft": {
+      "diagnosis": {
+        "auroc": 0.8707976929902396,
+        "macro_f1": 0.35690533748848996,
+        "accuracy": 0.38444198078344416,
+        "sensitivity": 0.979795918367347,
+        "specificity": 0.1282608695652174,
+        "brier": 0.24430717327992746,
+        "ece": 0.30235784482059436
+      },
+      "concept_macro_auroc": 0.8118990398592167,
+      "concept_macro_f1": 0.6861825333089622
+    },
+    "joint_hard_ste": {
+      "diagnosis": {
+        "auroc": 0.8412573203194321,
+        "macro_f1": 0.31384238788612145,
+        "accuracy": 0.3510439763488544,
+        "sensitivity": 0.9696938775510204,
+        "specificity": 0.08478260869565217,
+        "brier": 0.2399617151849593,
+        "ece": 0.2971233355623435
+      },
+      "concept_macro_auroc": 0.8069771619208546,
+      "concept_macro_f1": 0.684243293073071
+    }
+  },
+  "calibration_diagnostics": [
+    {
+      "model": "joint_soft",
+      "mean_probability": 0.5379547176933579,
+      "mean_probability_melanoma": 0.5776211006773843,
+      "mean_probability_benign": 0.5208809267567551,
+      "fraction_positive": 0.9042553191489362,
+      "fraction_melanoma_positive": 0.9797979797979798,
+      "fraction_benign_positive": 0.8717391304347826,
+      "minimum_probability": 0.4694463312625885,
+      "maximum_probability": 0.6542374491691589
+    },
+    {
+      "model": "joint_hard_ste",
+      "mean_probability": 0.547157607814099,
+      "mean_probability_melanoma": 0.6055265172864451,
+      "mean_probability_benign": 0.5220335989542629,
+      "fraction_positive": 0.9316109422492401,
+      "fraction_melanoma_positive": 0.9696969696969697,
+      "fraction_benign_positive": 0.9152173913043479,
+      "minimum_probability": 0.4486202001571655,
+      "maximum_probability": 0.7040814757347107
+    }
+  ],
+  "sequential_metrics_recomputed": false,
+  "threshold": 0.5,
+  "ece_bins": 10,
+  "interpretation": "Pooled development OOF, not means of folds or locked-test results. AUROC is threshold-independent; F1/accuracy/sensitivity/specificity use fixed 0.5. No tuning or recalibration.",
+  "limitations": "Best epoch used held-out validation diagnosis AUROC; these are selected development results, not unbiased test estimates. Sequential LR evaluation is not fully nested CNN/LR CV. Patient independence is unverified. Fold-specific logit scales can change pooled ranking relative to fold means."
+}

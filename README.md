@@ -6,8 +6,8 @@ engineering constraints are in [AGENTS.md](AGENTS.md).
 
 ## Status
 
-Stage 4: the black-box EfficientNet-B0 baseline and development-fold training
-infrastructure are implemented. No real training experiment has been run.
+Stages 1–13 are complete, including saved joint-CBM OOF assembly and development comparison.
+See [Results index](docs/RESULTS_INDEX.md) for verified artifact locations and status.
 The cohort, concept mappings and splits remain frozen.
 The starter lives in this directory, one level below the supplied workspace root.
 
@@ -293,3 +293,5 @@ Stage 10 cross-fitted correction and forced-value engine: [docs/INTERVENTION_ENG
 Stage 11 frozen intervention-policy experiments: [docs/INTERVENTION_POLICIES.md](docs/INTERVENTION_POLICIES.md). Oracle policies are non-deployable; development-only results.
 
 Stage 12 joint soft/hard STE infrastructure and GPU setup: [docs/JOINT_CBM_GPU.md](docs/JOINT_CBM_GPU.md). Full training pending.
+
+Stage 13 pooled joint OOF results: [docs/JOINT_OOF_COMPARISON.md](docs/JOINT_OOF_COMPARISON.md). Fixed thresholds; no locked-test results.

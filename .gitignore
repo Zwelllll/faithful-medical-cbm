@@ -42,3 +42,23 @@ artifacts/interventions/*
 !artifacts/interventions/engine/
 
 !artifacts/interventions/policies/
+
+# Canonical lightweight joint results only; never checkpoint binaries.
+!artifacts/joint_soft/
+!artifacts/joint_hard/
+artifacts/joint_soft/**
+artifacts/joint_hard/**
+!artifacts/joint_soft/**/
+!artifacts/joint_hard/**/
+!artifacts/joint_soft/**/*.json
+!artifacts/joint_soft/**/*.csv
+!artifacts/joint_hard/**/*.json
+!artifacts/joint_hard/**/*.csv
+!artifacts/joint_soft/.gitattributes
+!artifacts/joint_hard/.gitattributes
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+!artifacts/joint_oof/

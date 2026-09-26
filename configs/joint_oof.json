@@ -1,0 +1,16 @@
+{
+  "stage": 13,
+  "frozen_config": "configs/joint_soft.toml",
+  "stage7_dir": "artifacts/oof",
+  "organization_inventory": "docs/artifact_organization_inventory.json",
+  "output_dir": "artifacts/joint_oof",
+  "models": {
+    "joint_soft": {"run_dir": "artifacts/joint_soft/joint-soft-v1", "best_epochs": [13, 15, 16, 14]},
+    "joint_hard_ste": {"run_dir": "artifacts/joint_hard/joint-hard-v1", "best_epochs": [6, 18, 14, 16]}
+  },
+  "sequential_dirs": {
+    "sequential_soft": "artifacts/cbm/sequential_soft",
+    "sequential_hard": "artifacts/cbm/sequential_hard",
+    "oracle": "artifacts/cbm/oracle"
+  }
+}

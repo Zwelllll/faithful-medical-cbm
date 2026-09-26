@@ -1,0 +1,397 @@
+{
+  "diagnosis": {
+    "total": 658,
+    "positive": 198,
+    "negative": 460,
+    "auroc": 0.8365612648221343,
+    "macro_f1": 0.3139724823283808,
+    "accuracy": 0.35106382978723405,
+    "sensitivity": 0.9696969696969697,
+    "specificity": 0.08478260869565217,
+    "brier": 0.23996964582331715,
+    "ece": 0.29707841190161316,
+    "tp": 192,
+    "tn": 39,
+    "fp": 421,
+    "fn": 6,
+    "threshold": 0.5
+  },
+  "concepts": {
+    "concepts": {
+      "atypical_pigment_network": {
+        "auroc": 0.7579078426536054,
+        "macro_f1": 0.6291315212468926
+      },
+      "regression_structures_present": {
+        "auroc": 0.7431983213881554,
+        "macro_f1": 0.6647987773815589
+      },
+      "irregular_pigmentation": {
+        "auroc": 0.7837721423571851,
+        "macro_f1": 0.701043343077041
+      },
+      "blue_whitish_veil_present": {
+        "auroc": 0.9044647588765236,
+        "macro_f1": 0.793656756966545
+      },
+      "atypical_vascular_structures": {
+        "auroc": 0.810216944666922,
+        "macro_f1": 0.6187794763376159
+      },
+      "irregular_dots_and_globules": {
+        "auroc": 0.7798633384465207,
+        "macro_f1": 0.6730603834212312
+      },
+      "irregular_streaks": {
+        "auroc": 0.7819896005942517,
+        "macro_f1": 0.7165916534417918
+      }
+    },
+    "macro_auroc": 0.794487564140452,
+    "macro_f1": 0.6852945588389537,
+    "auroc_input": "saved soft probabilities"
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "best_epoch": 6,
+      "diagnosis": {
+        "total": 165,
+        "positive": 50,
+        "negative": 115,
+        "auroc": 0.8449565217391304,
+        "macro_f1": 0.3318292259632072,
+        "accuracy": 0.36363636363636365,
+        "sensitivity": 0.96,
+        "specificity": 0.10434782608695652,
+        "brier": 0.24389641301236253,
+        "ece": 0.2790582190860401,
+        "tp": 48,
+        "tn": 12,
+        "fp": 103,
+        "fn": 2,
+        "threshold": 0.5
+      },
+      "concepts": {
+        "concepts": {
+          "atypical_pigment_network": {
+            "auroc": 0.7072649572649572,
+            "macro_f1": 0.6422724658200964
+          },
+          "regression_structures_present": {
+            "auroc": 0.7302706824247045,
+            "macro_f1": 0.6318607764390897
+          },
+          "irregular_pigmentation": {
+            "auroc": 0.7052173913043478,
+            "macro_f1": 0.6727272727272727
+          },
+          "blue_whitish_veil_present": {
+            "auroc": 0.8774586939417781,
+            "macro_f1": 0.7444803327286402
+          },
+          "atypical_vascular_structures": {
+            "auroc": 0.8197729422894986,
+            "macro_f1": 0.5722222222222222
+          },
+          "irregular_dots_and_globules": {
+            "auroc": 0.761063261063261,
+            "macro_f1": 0.6730030333670374
+          },
+          "irregular_streaks": {
+            "auroc": 0.7607499140006879,
+            "macro_f1": 0.6857142857142857
+          }
+        },
+        "macro_auroc": 0.7659711203270335,
+        "macro_f1": 0.6603257698598064,
+        "auroc_input": "saved soft probabilities"
+      },
+      "saved_validation_concept_macro_auroc": 0.7659711203270335,
+      "saved_validation_concept_macro_f1": 0.6603257698598064
+    },
+    {
+      "fold": 1,
+      "best_epoch": 18,
+      "diagnosis": {
+        "total": 165,
+        "positive": 50,
+        "negative": 115,
+        "auroc": 0.8251304347826087,
+        "macro_f1": 0.31102439024390244,
+        "accuracy": 0.3515151515151515,
+        "sensitivity": 0.98,
+        "specificity": 0.0782608695652174,
+        "brier": 0.24124537739704158,
+        "ece": 0.28562868327805496,
+        "tp": 49,
+        "tn": 9,
+        "fp": 106,
+        "fn": 1,
+        "threshold": 0.5
+      },
+      "concepts": {
+        "concepts": {
+          "atypical_pigment_network": {
+            "auroc": 0.8213682432432432,
+            "macro_f1": 0.6370608168360977
+          },
+          "regression_structures_present": {
+            "auroc": 0.7639824797843666,
+            "macro_f1": 0.6646341463414633
+          },
+          "irregular_pigmentation": {
+            "auroc": 0.7868937048503613,
+            "macro_f1": 0.6876126938333935
+          },
+          "blue_whitish_veil_present": {
+            "auroc": 0.9343327702702704,
+            "macro_f1": 0.8153235653235653
+          },
+          "atypical_vascular_structures": {
+            "auroc": 0.7625272331154683,
+            "macro_f1": 0.6195000461212066
+          },
+          "irregular_dots_and_globules": {
+            "auroc": 0.8488828502415459,
+            "macro_f1": 0.720834676119884
+          },
+          "irregular_streaks": {
+            "auroc": 0.8278688524590164,
+            "macro_f1": 0.7097702681093758
+          }
+        },
+        "macro_auroc": 0.8208365905663247,
+        "macro_f1": 0.6935337446692839,
+        "auroc_input": "saved soft probabilities"
+      },
+      "saved_validation_concept_macro_auroc": 0.8208365905663246,
+      "saved_validation_concept_macro_f1": 0.6935337446692837
+    },
+    {
+      "fold": 2,
+      "best_epoch": 14,
+      "diagnosis": {
+        "total": 164,
+        "positive": 49,
+        "negative": 115,
+        "auroc": 0.8472937000887311,
+        "macro_f1": 0.2955270935960591,
+        "accuracy": 0.3353658536585366,
+        "sensitivity": 0.9591836734693877,
+        "specificity": 0.06956521739130435,
+        "brier": 0.23861708646249788,
+        "ece": 0.31415715595571003,
+        "tp": 47,
+        "tn": 8,
+        "fp": 107,
+        "fn": 2,
+        "threshold": 0.5
+      },
+      "concepts": {
+        "concepts": {
+          "atypical_pigment_network": {
+            "auroc": 0.7382092851879145,
+            "macro_f1": 0.5811874866992978
+          },
+          "regression_structures_present": {
+            "auroc": 0.7412177985948478,
+            "macro_f1": 0.6154857894435867
+          },
+          "irregular_pigmentation": {
+            "auroc": 0.8203502919099249,
+            "macro_f1": 0.7072921978582356
+          },
+          "blue_whitish_veil_present": {
+            "auroc": 0.9231854838709677,
+            "macro_f1": 0.8306368330464715
+          },
+          "atypical_vascular_structures": {
+            "auroc": 0.9064935064935065,
+            "macro_f1": 0.6583333333333333
+          },
+          "irregular_dots_and_globules": {
+            "auroc": 0.8344489067380634,
+            "macro_f1": 0.6833103448275861
+          },
+          "irregular_streaks": {
+            "auroc": 0.7855283706402916,
+            "macro_f1": 0.7380656610470275
+          }
+        },
+        "macro_auroc": 0.8213476633479309,
+        "macro_f1": 0.687758806607934,
+        "auroc_input": "saved soft probabilities"
+      },
+      "saved_validation_concept_macro_auroc": 0.8213476633479309,
+      "saved_validation_concept_macro_f1": 0.6877588066079341
+    },
+    {
+      "fold": 3,
+      "best_epoch": 16,
+      "diagnosis": {
+        "total": 164,
+        "positive": 49,
+        "negative": 115,
+        "auroc": 0.8476486246672582,
+        "macro_f1": 0.316988841741317,
+        "accuracy": 0.35365853658536583,
+        "sensitivity": 0.9795918367346939,
+        "specificity": 0.08695652173913043,
+        "brier": 0.23608798386793517,
+        "ece": 0.309649283929569,
+        "tp": 48,
+        "tn": 10,
+        "fp": 105,
+        "fn": 1,
+        "threshold": 0.5
+      },
+      "concepts": {
+        "concepts": {
+          "atypical_pigment_network": {
+            "auroc": 0.8174281503316138,
+            "macro_f1": 0.6421017290582508
+          },
+          "regression_structures_present": {
+            "auroc": 0.8187134502923976,
+            "macro_f1": 0.7457364341085271
+          },
+          "irregular_pigmentation": {
+            "auroc": 0.8527062999112689,
+            "macro_f1": 0.7359848484848485
+          },
+          "blue_whitish_veil_present": {
+            "auroc": 0.9134328358208956,
+            "macro_f1": 0.7842969062732316
+          },
+          "atypical_vascular_structures": {
+            "auroc": 0.7843137254901961,
+            "macro_f1": 0.6321794246708923
+          },
+          "irregular_dots_and_globules": {
+            "auroc": 0.7536945812807883,
+            "macro_f1": 0.6119068377132894
+          },
+          "irregular_streaks": {
+            "auroc": 0.7979838709677419,
+            "macro_f1": 0.7152777777777778
+          }
+        },
+        "macro_auroc": 0.8197532734421288,
+        "macro_f1": 0.6953548511552595,
+        "auroc_input": "saved soft probabilities"
+      },
+      "saved_validation_concept_macro_auroc": 0.8197532734421289,
+      "saved_validation_concept_macro_f1": 0.6953548511552595
+    }
+  ],
+  "fold_means": {
+    "diagnosis": {
+      "auroc": 0.8412573203194321,
+      "macro_f1": 0.31384238788612145,
+      "accuracy": 0.3510439763488544,
+      "sensitivity": 0.9696938775510204,
+      "specificity": 0.08478260869565217,
+      "brier": 0.2399617151849593,
+      "ece": 0.2971233355623435
+    },
+    "concept_macro_auroc": 0.8069771619208546,
+    "concept_macro_f1": 0.684243293073071
+  },
+  "probability_diagnostics": {
+    "mean_probability": 0.547157607814099,
+    "mean_probability_melanoma": 0.6055265172864451,
+    "mean_probability_benign": 0.5220335989542629,
+    "fraction_positive": 0.9316109422492401,
+    "fraction_melanoma_positive": 0.9696969696969697,
+    "fraction_benign_positive": 0.9152173913043479,
+    "minimum_probability": 0.4486202001571655,
+    "maximum_probability": 0.7040814757347107
+  },
+  "calibration": {
+    "ece": 0.29707841190161316,
+    "bins": [
+      {
+        "lower": 0.0,
+        "upper": 0.1,
+        "count": 0,
+        "mean_probability": null,
+        "fraction_positive": null,
+        "weighted_absolute_gap": 0.0
+      },
+      {
+        "lower": 0.1,
+        "upper": 0.2,
+        "count": 0,
+        "mean_probability": null,
+        "fraction_positive": null,
+        "weighted_absolute_gap": 0.0
+      },
+      {
+        "lower": 0.2,
+        "upper": 0.3,
+        "count": 0,
+        "mean_probability": null,
+        "fraction_positive": null,
+        "weighted_absolute_gap": 0.0
+      },
+      {
+        "lower": 0.3,
+        "upper": 0.4,
+        "count": 0,
+        "mean_probability": null,
+        "fraction_positive": null,
+        "weighted_absolute_gap": 0.0
+      },
+      {
+        "lower": 0.4,
+        "upper": 0.5,
+        "count": 45,
+        "mean_probability": 0.4696659021907382,
+        "fraction_positive": 0.13333333333333333,
+        "weighted_absolute_gap": 0.023001467475050486
+      },
+      {
+        "lower": 0.5,
+        "upper": 0.6,
+        "count": 464,
+        "mean_probability": 0.5207299243273407,
+        "fraction_positive": 0.16810344827586207,
+        "weighted_absolute_gap": 0.24866061533113382
+      },
+      {
+        "lower": 0.6,
+        "upper": 0.7,
+        "count": 139,
+        "mean_probability": 0.6492058630469891,
+        "fraction_positive": 0.7482014388489209,
+        "weighted_absolute_gap": 0.020912439265149713
+      },
+      {
+        "lower": 0.7,
+        "upper": 0.8,
+        "count": 10,
+        "mean_probability": 0.703644049167633,
+        "fraction_positive": 1.0,
+        "weighted_absolute_gap": 0.004503889830279133
+      },
+      {
+        "lower": 0.8,
+        "upper": 0.9,
+        "count": 0,
+        "mean_probability": null,
+        "fraction_positive": null,
+        "weighted_absolute_gap": 0.0
+      },
+      {
+        "lower": 0.9,
+        "upper": 1.0,
+        "count": 0,
+        "mean_probability": null,
+        "fraction_positive": null,
+        "weighted_absolute_gap": 0.0
+      }
+    ],
+    "rule": "10 equal-width positive-class probability bins; left-inclusive, right-exclusive except p=1 in last"
+  }
+}

@@ -281,3 +281,22 @@ JOINT_CBM_GPU.md for exact values, Drive setup and first-run commands.
 No locked-test loaders/images/labels, cohort/split/mapping changes, sequential
 retraining, joint OOF generation, or changes to Stage 7-11 artifacts. Existing
 case-level patient-independence limitation remains. GPU execution is pending.
+
+## D018 — Stage 13 saved joint OOF assembly (2026-09-26)
+Decision: Assemble saved best-epoch validation CSVs only: joint soft 13/15/16/14,
+joint hard STE 6/18/14/16. Verify source hashes, run/summary type/order/test flags,
+exact frozen folds, training exclusions and processed/Stage 7 truth. Each joint
+OOF table covers all 658 development cases once, with zero test overlap.
+Joint concept AUROC uses saved soft probabilities; F1 uses >=0.5. Diagnosis AUROC
+uses logits; all classification metrics keep >=0.5 and the frozen ten-bin ECE.
+Copy frozen sequential metrics unchanged; distinguish pooled values from fold means.
+Result: joint soft pooled diagnosis AUROC 0.8695103206, Macro-F1 0.3574513128;
+joint hard STE AUROC 0.8365612648, Macro-F1 0.3139724823. Joint concept macro AUROC/F1:
+soft 0.8094709563/0.6871424813, hard 0.7944875641/0.6852945588.
+Diagnosis predictions >=0.5: 90.4255% soft, 93.1611% hard, compared with 30.0912%
+melanoma prevalence. Fixed-threshold classification/calibration remain unresolved;
+no threshold optimization or recalibration was performed or authorized by this stage.
+Status: Stage 13 complete. No training/inference/checkpoint access, joint interventions
+or locked-test image/label use. Previous Stage 7-12 artifacts remain unchanged.
+Validation-selected epochs, non-nested sequential evaluation and unverified patient
+independence limit interpretation. See JOINT_OOF_COMPARISON.md and artifacts/joint_oof/.
