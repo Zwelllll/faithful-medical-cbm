@@ -1,0 +1,201 @@
+{
+  "stage": "15A",
+  "created_utc": "2026-09-26T16:24:50.624842+00:00",
+  "current_commit": "f38895f5271028d82ccacb6f085c41588cfc0f8c",
+  "freeze_base_commit": "4bfe95d05a1347dfe1bac24948f43104e7a08a10",
+  "frozen_hashes_match": true,
+  "frozen_documentation_changes": [],
+  "manifest_sha256": "cc030e0bddf09b6f422b31b0fdb7758e1210522e68dd03bafa8c44fbef71b2a1",
+  "expected_count": 16,
+  "verified_count": 0,
+  "status": "blocked",
+  "drive_outputs": "D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter",
+  "records": [
+    {
+      "family": "black_box",
+      "fold": 0,
+      "epoch": 15,
+      "relative_path": "checkpoints/baseline/baseline-v1/fold_0/best.pt",
+      "exists": false,
+      "sha256": null,
+      "size_bytes": null,
+      "status": "failed",
+      "error": "FileNotFoundError: Missing checkpoint: D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\checkpoints\\baseline\\baseline-v1\\fold_0\\best.pt"
+    },
+    {
+      "family": "black_box",
+      "fold": 1,
+      "epoch": 9,
+      "relative_path": "checkpoints/baseline/baseline-v1/fold_1/best.pt",
+      "exists": false,
+      "sha256": null,
+      "size_bytes": null,
+      "status": "failed",
+      "error": "FileNotFoundError: Missing checkpoint: D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\checkpoints\\baseline\\baseline-v1\\fold_1\\best.pt"
+    },
+    {
+      "family": "black_box",
+      "fold": 2,
+      "epoch": 21,
+      "relative_path": "checkpoints/baseline/baseline-v1/fold_2/best.pt",
+      "exists": false,
+      "sha256": null,
+      "size_bytes": null,
+      "status": "failed",
+      "error": "FileNotFoundError: Missing checkpoint: D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\checkpoints\\baseline\\baseline-v1\\fold_2\\best.pt"
+    },
+    {
+      "family": "black_box",
+      "fold": 3,
+      "epoch": 10,
+      "relative_path": "checkpoints/baseline/baseline-v1/fold_3/best.pt",
+      "exists": false,
+      "sha256": null,
+      "size_bytes": null,
+      "status": "failed",
+      "error": "FileNotFoundError: Missing checkpoint: D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\checkpoints\\baseline\\baseline-v1\\fold_3\\best.pt"
+    },
+    {
+      "family": "seven_concept",
+      "fold": 0,
+      "epoch": 19,
+      "relative_path": "checkpoints/seven_concept/seven-concept-v1/fold_0/best.pt",
+      "exists": false,
+      "sha256": null,
+      "size_bytes": null,
+      "status": "failed",
+      "error": "FileNotFoundError: Missing checkpoint: D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\checkpoints\\seven_concept\\seven-concept-v1\\fold_0\\best.pt"
+    },
+    {
+      "family": "seven_concept",
+      "fold": 1,
+      "epoch": 18,
+      "relative_path": "checkpoints/seven_concept/seven-concept-v1/fold_1/best.pt",
+      "exists": false,
+      "sha256": null,
+      "size_bytes": null,
+      "status": "failed",
+      "error": "FileNotFoundError: Missing checkpoint: D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\checkpoints\\seven_concept\\seven-concept-v1\\fold_1\\best.pt"
+    },
+    {
+      "family": "seven_concept",
+      "fold": 2,
+      "epoch": 16,
+      "relative_path": "checkpoints/seven_concept/seven-concept-v1/fold_2/best.pt",
+      "exists": false,
+      "sha256": null,
+      "size_bytes": null,
+      "status": "failed",
+      "error": "FileNotFoundError: Missing checkpoint: D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\checkpoints\\seven_concept\\seven-concept-v1\\fold_2\\best.pt"
+    },
+    {
+      "family": "seven_concept",
+      "fold": 3,
+      "epoch": 30,
+      "relative_path": "checkpoints/seven_concept/seven-concept-v1/fold_3/best.pt",
+      "exists": false,
+      "sha256": null,
+      "size_bytes": null,
+      "status": "failed",
+      "error": "FileNotFoundError: Missing checkpoint: D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\checkpoints\\seven_concept\\seven-concept-v1\\fold_3\\best.pt"
+    },
+    {
+      "family": "joint_soft",
+      "fold": 0,
+      "epoch": 13,
+      "relative_path": "checkpoints/joint_soft/joint-soft-v1/fold_0/best.pt",
+      "exists": false,
+      "sha256": null,
+      "size_bytes": null,
+      "status": "failed",
+      "error": "FileNotFoundError: Missing checkpoint: D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\checkpoints\\joint_soft\\joint-soft-v1\\fold_0\\best.pt"
+    },
+    {
+      "family": "joint_soft",
+      "fold": 1,
+      "epoch": 15,
+      "relative_path": "checkpoints/joint_soft/joint-soft-v1/fold_1/best.pt",
+      "exists": false,
+      "sha256": null,
+      "size_bytes": null,
+      "status": "failed",
+      "error": "FileNotFoundError: Missing checkpoint: D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\checkpoints\\joint_soft\\joint-soft-v1\\fold_1\\best.pt"
+    },
+    {
+      "family": "joint_soft",
+      "fold": 2,
+      "epoch": 16,
+      "relative_path": "checkpoints/joint_soft/joint-soft-v1/fold_2/best.pt",
+      "exists": false,
+      "sha256": null,
+      "size_bytes": null,
+      "status": "failed",
+      "error": "FileNotFoundError: Missing checkpoint: D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\checkpoints\\joint_soft\\joint-soft-v1\\fold_2\\best.pt"
+    },
+    {
+      "family": "joint_soft",
+      "fold": 3,
+      "epoch": 14,
+      "relative_path": "checkpoints/joint_soft/joint-soft-v1/fold_3/best.pt",
+      "exists": false,
+      "sha256": null,
+      "size_bytes": null,
+      "status": "failed",
+      "error": "FileNotFoundError: Missing checkpoint: D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\checkpoints\\joint_soft\\joint-soft-v1\\fold_3\\best.pt"
+    },
+    {
+      "family": "joint_hard_ste",
+      "fold": 0,
+      "epoch": 6,
+      "relative_path": "checkpoints/joint_hard/joint-hard-v1/fold_0/best.pt",
+      "exists": false,
+      "sha256": null,
+      "size_bytes": null,
+      "status": "failed",
+      "error": "FileNotFoundError: Missing checkpoint: D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\checkpoints\\joint_hard\\joint-hard-v1\\fold_0\\best.pt"
+    },
+    {
+      "family": "joint_hard_ste",
+      "fold": 1,
+      "epoch": 18,
+      "relative_path": "checkpoints/joint_hard/joint-hard-v1/fold_1/best.pt",
+      "exists": false,
+      "sha256": null,
+      "size_bytes": null,
+      "status": "failed",
+      "error": "FileNotFoundError: Missing checkpoint: D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\checkpoints\\joint_hard\\joint-hard-v1\\fold_1\\best.pt"
+    },
+    {
+      "family": "joint_hard_ste",
+      "fold": 2,
+      "epoch": 14,
+      "relative_path": "checkpoints/joint_hard/joint-hard-v1/fold_2/best.pt",
+      "exists": false,
+      "sha256": null,
+      "size_bytes": null,
+      "status": "failed",
+      "error": "FileNotFoundError: Missing checkpoint: D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\checkpoints\\joint_hard\\joint-hard-v1\\fold_2\\best.pt"
+    },
+    {
+      "family": "joint_hard_ste",
+      "fold": 3,
+      "epoch": 16,
+      "relative_path": "checkpoints/joint_hard/joint-hard-v1/fold_3/best.pt",
+      "exists": false,
+      "sha256": null,
+      "size_bytes": null,
+      "status": "failed",
+      "error": "FileNotFoundError: Missing checkpoint: D:\\Explanable_AI\\faithful-medical-cbm-starter\\faithful-medical-cbm-starter\\checkpoints\\joint_hard\\joint-hard-v1\\fold_3\\best.pt"
+    }
+  ],
+  "python": "3.13.15",
+  "evaluator_sha256": {
+    "src/faithful_medical_cbm/evaluation/final_core.py": "de74b0db91bfc1bc7b1c0ee91e41159c186cf39d1489a6efc5f550ee991f600b",
+    "src/faithful_medical_cbm/evaluation/final_evaluator.py": "95201c93827ee859fc5835197c2e9fbaa813a97a40f12643900ca303d8b71703",
+    "src/faithful_medical_cbm/evaluation/final_interventions.py": "532dd8e4bf888dd9248170817c2764179ac14d9f6f71ca7a30efd11844f2fc49",
+    "src/faithful_medical_cbm/evaluation/final_verification.py": "03ddea6a6fff8b499c20f5524d21666bd3cf9c9c947b0a15f003b7a472b6d27b"
+  },
+  "locked_test_accessed": false,
+  "final_test_executed": false,
+  "inference_performed": false
+}

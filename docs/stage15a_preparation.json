@@ -1,0 +1,34 @@
+{
+  "stage": "15A",
+  "current_commit": "f38895f5271028d82ccacb6f085c41588cfc0f8c",
+  "freeze_base_commit": "4bfe95d05a1347dfe1bac24948f43104e7a08a10",
+  "frozen_hashes_match": true,
+  "frozen_documentation_changes": [],
+  "manifest_sha256": "cc030e0bddf09b6f422b31b0fdb7758e1210522e68dd03bafa8c44fbef71b2a1",
+  "new_file_sha256": {
+    "src/faithful_medical_cbm/evaluation/final_core.py": "de74b0db91bfc1bc7b1c0ee91e41159c186cf39d1489a6efc5f550ee991f600b",
+    "src/faithful_medical_cbm/evaluation/final_evaluator.py": "95201c93827ee859fc5835197c2e9fbaa813a97a40f12643900ca303d8b71703",
+    "src/faithful_medical_cbm/evaluation/final_interventions.py": "532dd8e4bf888dd9248170817c2764179ac14d9f6f71ca7a30efd11844f2fc49",
+    "src/faithful_medical_cbm/evaluation/final_verification.py": "03ddea6a6fff8b499c20f5524d21666bd3cf9c9c947b0a15f003b7a472b6d27b",
+    "tests/test_final_evaluator.py": "01bb762caf653be0a0d307ae0db461bed47d9f57e89da014a68748bc0a53241f",
+    "docs/FINAL_TEST_EXECUTION.md": "0feb7ae39834bc764ca89014e6be062700e5ed1f4579b383648e35526b04768c",
+    "docs/final_output_schemas.json": "1da48edf533c7e66890d20e3957aff51dcb2556b02764f72c47c1ac3cd2e952a",
+    "docs/stage15a_checkpoint_verification_local.json": "3da15ca535f01d640c04d8c59d5c8a2dd3f8004046d82ba59a70d01c6d8e5764"
+  },
+  "tests": {
+    "suite": "tests.test_final_evaluator",
+    "passed": 13,
+    "focused_checks_after_report_format_change": 2
+  },
+  "real_checkpoint_verification": {
+    "verified": 0,
+    "expected": 16,
+    "status": "pending Drive binaries"
+  },
+  "locked_test_accessed": false,
+  "final_test_executed": false,
+  "test_loader_constructed": false,
+  "cnn_inference_performed": false,
+  "frozen_files_modified": false,
+  "final_test_namespace_exists": false
+}
