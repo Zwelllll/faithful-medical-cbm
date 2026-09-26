@@ -300,3 +300,29 @@ Status: Stage 13 complete. No training/inference/checkpoint access, joint interv
 or locked-test image/label use. Previous Stage 7-12 artifacts remain unchanged.
 Validation-selected epochs, non-nested sequential evaluation and unverified patient
 independence limit interpretation. See JOINT_OOF_COMPARISON.md and artifacts/joint_oof/.
+
+## D019 — Stage 14 development freeze and final-test protocol (2026-09-26)
+User freezes all development choices before test access. Cohort 823, development
+658, locked test 165 (50 melanoma/115 benign); patient independence unverifiable.
+Concept order/mappings/splits unchanged; every concept/diagnosis threshold >=0.5.
+Freeze neural best epochs by fold: black box 15/9/21/10; seven concepts 19/18/16/30;
+joint soft 13/15/16/14; joint hard STE 6/18/14/16. Average four diagnosis probabilities
+for black box and each joint family. Sequential models use four-model mean concept
+probabilities, soft directly and hard thresholded, through saved full-development
+LR heads. Oracle uses true concepts and its saved full-development head, non-deployable.
+Joint concept metrics average soft probabilities; never rebuild joint diagnosis from
+averaged concepts. Accept OOF-to-ensemble shift and severe joint fixed-threshold
+behavior unchanged: no recalibration, new loss, retraining or threshold optimization.
+Final metrics: AUROC, Macro-F1, accuracy, sensitivity, specificity, Brier and frozen
+10-bin ECE; concept per-target AUROC/F1 and arithmetic macro means. No winner labels.
+Only sequential soft/hard interventions, D016 policies unchanged, original ensemble
+q and full-development heads; random seed 42/100 repetitions, budgets 0..7.
+Prespecify case-stratified bootstrap 2000/seed42, 50 positive and 115 negative draws,
+paired indices for all models, percentile 95% intervals and all 15 paired differences;
+no refitting. Exact definitions/denominators are in FINAL_TEST_PROTOCOL.md and config.
+Manifest captures base Git/source/config/model-metadata/head hashes. Cohort/test hash
+values come from split metadata without opening test IDs or annotations. Neural
+binaries remain on Drive, unopened and unverified; binary attestation and baseline
+run verification are mandatory before a separately authorized final execution.
+Status: protocol only. locked_test_accessed=false; final_test_executed=false.
+No CNN inference/training, test metrics, model/head/split edits, commit or push.

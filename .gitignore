@@ -62,3 +62,5 @@ artifacts/joint_hard/**
 *.safetensors
 
 !artifacts/joint_oof/
+
+!artifacts/final_protocol/

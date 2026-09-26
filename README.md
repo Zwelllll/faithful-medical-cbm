@@ -6,7 +6,11 @@ engineering constraints are in [AGENTS.md](AGENTS.md).
 
 ## Status
 
-Stages 1–13 are complete, including saved joint-CBM OOF assembly and development comparison.
+Stages 1–14 are complete, including the development freeze and final-test protocol.
+See [Final-test protocol](docs/FINAL_TEST_PROTOCOL.md) and the
+[freeze manifest](artifacts/final_protocol/development_freeze_manifest.json).
+The locked test remains unopened. Drive checkpoint identity/hash verification and
+an independently authorized final evaluation are still required.
 See [Results index](docs/RESULTS_INDEX.md) for verified artifact locations and status.
 The cohort, concept mappings and splits remain frozen.
 The starter lives in this directory, one level below the supplied workspace root.

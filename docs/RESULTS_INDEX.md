@@ -110,3 +110,15 @@ pooled/per-fold metric JSONs, diagnosis/concept comparison CSVs, calibration bin
 and diagnostics, summary and integrity hashes. No checkpoints or new inference.
 See [JOINT_OOF_COMPARISON.md](JOINT_OOF_COMPARISON.md). These are pooled development
 metrics, distinct from the Stage 12 fold means; no locked-test results exist.
+
+## Stage 14 — development freeze (no test results)
+
+Protocol: [FINAL_TEST_PROTOCOL.md](FINAL_TEST_PROTOCOL.md). Rules:
+`configs/final_protocol.json`. Immutable one-time record:
+`artifacts/final_protocol/development_freeze_manifest.json`.
+Metadata-only writer: `scripts/freeze_development.py`; safety checks:
+`tests/test_final_protocol.py`. The manifest records the source snapshot, exact
+checkpoint epochs/expected paths, full-development LR hashes, ensemble rules,
+thresholds, metrics, Stage 11 intervention semantics and prespecified bootstrap.
+Neural binary hashes are explicitly unverified pending Drive attestation before
+test exposure. No test inference, labels, images or final-test outputs were used.

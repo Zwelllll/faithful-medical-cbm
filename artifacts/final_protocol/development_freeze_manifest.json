@@ -1,0 +1,688 @@
+{
+  "schema_version": 1,
+  "freeze_timestamp_utc": "2026-09-26T13:41:48.086188+00:00",
+  "status": "decisions_frozen_checkpoint_binary_verification_pending",
+  "protocol": {
+    "stage": 14,
+    "development_decisions_frozen": true,
+    "locked_test_accessed": false,
+    "final_test_executed": false,
+    "concept_order": [
+      "atypical_pigment_network",
+      "regression_structures_present",
+      "irregular_pigmentation",
+      "blue_whitish_veil_present",
+      "atypical_vascular_structures",
+      "irregular_dots_and_globules",
+      "irregular_streaks"
+    ],
+    "thresholds": {
+      "concept": 0.5,
+      "diagnosis": 0.5,
+      "operator": ">="
+    },
+    "seed": 42,
+    "preprocessing": {
+      "modality": "dermoscopic RGB only",
+      "resize": [
+        224,
+        224
+      ],
+      "interpolation": "bicubic",
+      "antialias": true,
+      "tensor_scale": "0..1",
+      "normalization_mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "normalization_std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "model_mode": "eval, no gradients",
+      "augmentation": false
+    },
+    "architecture": {
+      "backbone": "saved ImageNet-initialized torchvision EfficientNet-B0",
+      "black_box": "one diagnosis logit",
+      "seven_concept": "seven logits in frozen concept order",
+      "joint_soft": "seven sigmoid concepts into linear 7-to-1 diagnosis head",
+      "joint_hard_ste": "seven exact binary concepts into linear 7-to-1 diagnosis head; STE used only during training",
+      "sequential_and_oracle_heads": "saved logistic regression with intercept; no refitting"
+    },
+    "selected_epochs": {
+      "black_box": [
+        15,
+        9,
+        21,
+        10
+      ],
+      "seven_concept": [
+        19,
+        18,
+        16,
+        30
+      ],
+      "joint_soft": [
+        13,
+        15,
+        16,
+        14
+      ],
+      "joint_hard_ste": [
+        6,
+        18,
+        14,
+        16
+      ]
+    },
+    "checkpoint_namespaces": {
+      "black_box": "baseline/baseline-v1",
+      "seven_concept": "seven_concept/seven-concept-v1",
+      "joint_soft": "joint_soft/joint-soft-v1",
+      "joint_hard_ste": "joint_hard/joint-hard-v1"
+    },
+    "source_run_directories": {
+      "black_box": null,
+      "seven_concept": "artifacts/seven-concept-v1-20260924T041739Z-1-001/seven-concept-v1",
+      "joint_soft": "artifacts/joint_soft/joint-soft-v1",
+      "joint_hard_ste": "artifacts/joint_hard/joint-hard-v1"
+    },
+    "full_development_heads": {
+      "sequential_soft": "artifacts/cbm/sequential_soft/full_development_model.json",
+      "sequential_hard": "artifacts/cbm/sequential_hard/full_development_model.json",
+      "oracle": "artifacts/cbm/oracle/full_development_model.json"
+    },
+    "diagnosis_model_order": [
+      "black_box",
+      "sequential_soft",
+      "sequential_hard",
+      "joint_soft",
+      "joint_hard_ste",
+      "oracle"
+    ],
+    "ensemble_rules": {
+      "black_box": "arithmetic_mean_of_four_fold_diagnosis_probabilities",
+      "sequential_concepts": "arithmetic_mean_of_four_fold_soft_probabilities_per_concept",
+      "sequential_soft": "full_development_soft_head(mean_concept_probabilities)",
+      "sequential_hard": "full_development_hard_head(mean_concept_probabilities >= 0.5)",
+      "oracle": "full_development_oracle_head(frozen_ground_truth_concepts); non_deployable",
+      "joint_soft": "arithmetic_mean_of_four_end_to_end_fold_diagnosis_probabilities",
+      "joint_hard_ste": "arithmetic_mean_of_four_end_to_end_fold_diagnosis_probabilities; each_fold_uses_own_binary_concepts",
+      "joint_concepts": "arithmetic_mean_of_four_fold_soft_probabilities_per_concept",
+      "prohibited": [
+        "majority_vote",
+        "new_head_on_averaged_joint_concepts",
+        "full_development_neural_retraining",
+        "test_time_augmentation",
+        "threshold_optimization",
+        "recalibration"
+      ]
+    },
+    "metrics": {
+      "diagnosis": [
+        "auroc",
+        "macro_f1",
+        "accuracy",
+        "sensitivity",
+        "specificity",
+        "brier",
+        "ece"
+      ],
+      "threshold_independent": [
+        "auroc"
+      ],
+      "threshold_dependent": [
+        "macro_f1",
+        "accuracy",
+        "sensitivity",
+        "specificity"
+      ],
+      "calibration": [
+        "brier",
+        "ece"
+      ],
+      "auroc_input": "final_ensemble_or_head_probability",
+      "macro_f1": "unweighted mean of class-0 and class-1 F1, zero_division=0",
+      "ece": {
+        "bins": 10,
+        "width": 0.1,
+        "closure": "left-inclusive/right-exclusive; final bin includes 1",
+        "formula": "sum(n_bin/N * abs(mean_probability - fraction_positive))",
+        "empty_bins": "zero contribution"
+      },
+      "concept_models": [
+        "sequential_concept_ensemble",
+        "joint_soft_concept_ensemble",
+        "joint_hard_ste_concept_ensemble"
+      ],
+      "concept": [
+        "per_concept_auroc",
+        "per_concept_macro_f1",
+        "arithmetic_macro_mean_auroc",
+        "arithmetic_macro_mean_f1"
+      ],
+      "undefined": "null with explicit reason; never silently omit an undefined concept from a macro mean",
+      "reporting": "factual differences only; no winner/rank labels"
+    },
+    "interventions": {
+      "models": [
+        "sequential_soft",
+        "sequential_hard"
+      ],
+      "heads": "saved_full_development_heads_only",
+      "q": "original_four_model_mean_concept_probability",
+      "budgets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "soft": "unqueried=original q; corrected=exact truth 0/1",
+      "hard": "unqueried=(original q >= 0.5); corrected=exact truth 0/1",
+      "tie_break": "frozen concept order",
+      "case_order": "lexicographic case_num strings",
+      "random_error_oracle": {
+        "non_deployable": true,
+        "selection": "uniform permutation without replacement of original threshold errors",
+        "seed": 42,
+        "repetitions": 100,
+        "rng": "PCG64(SeedSequence([42, repetition]))",
+        "paired_orders_across_soft_hard": true,
+        "exhaustion": "stop and pad unchanged states"
+      },
+      "confidently_wrong_oracle": {
+        "non_deployable": true,
+        "selection": "remaining original threshold error maximizing abs(original q - 0.5)",
+        "exhaustion": "stop and pad unchanged states"
+      },
+      "active": {
+        "uncertainty": "1 - 2 * abs(original q - 0.5)",
+        "impact": "abs(p_force_1_current - p_force_0_current)",
+        "score": "uncertainty * impact",
+        "selection": "unqueried concept maximizing score; recompute impact against current cumulative state",
+        "truth_access": "only selected concept after selection",
+        "queries": "seven distinct concepts including threshold-correct concepts"
+      },
+      "metrics": {
+        "diagnosis": "all seven frozen diagnosis metrics at each budget",
+        "query_precision": "cumulative errors corrected / cumulative actual queries; null when no queries",
+        "mean_errors_corrected": "cumulative errors corrected / N",
+        "diagnosis_change": "changed from k=0 / N",
+        "improvement": "originally wrong now correct / originally wrong",
+        "harm": "originally correct now wrong / originally correct",
+        "zero_denominator": "null with reason",
+        "random_summary": "mean and sample SD (ddof=1) over 100 per-repetition metrics; never metrics of averaged predictions",
+        "curve_area": "unnormalized trapezoid over budgets 0..7 for AUROC, Macro-F1, accuracy; per-repetition area then mean/sample SD; descriptive only"
+      }
+    },
+    "bootstrap": {
+      "enabled": true,
+      "replicates": 2000,
+      "seed": 42,
+      "rng": "PCG64(42)",
+      "unit": "case, not patient",
+      "positive_count": 50,
+      "negative_count": 115,
+      "sampling": "sort each class by lexicographic case_num; for each replicate draw 50 positives then 115 negatives with replacement; concatenate; same indices across all six models",
+      "metrics": [
+        "auroc",
+        "macro_f1",
+        "accuracy",
+        "sensitivity",
+        "specificity",
+        "brier"
+      ],
+      "interval": "percentile 95%; 2.5 and 97.5 percentiles, linear interpolation",
+      "paired_differences": "all 15 unordered pairs in diagnosis_model_order; earlier model minus later model on identical replicate indices",
+      "interpretation": "descriptive case-level intervals conditional on fitted models; no multiplicity-adjusted or patient-independent claim; no model changes",
+      "excluded": [
+        "ece_intervals",
+        "concept_intervals",
+        "intervention_intervals",
+        "refitting"
+      ]
+    },
+    "limitations": [
+      "patient-level independence cannot be verified",
+      "sequential head trained on single-model OOF features but test features average four models",
+      "joint fixed-0.5 threshold/calibration behavior accepted unchanged",
+      "oracle is non-deployable upper-bound analysis, not guaranteed empirical ceiling",
+      "simulated corrections assume perfect concept truth"
+    ],
+    "execution_gate": "Separate final-test authorization and verified hashes/identity for all 16 Drive checkpoints required before test exposure. No training, model choice, losses, mappings, thresholds, calibration or policies may change."
+  },
+  "locked_test_accessed": false,
+  "final_test_executed": false,
+  "git": {
+    "commit": "4bfe95d05a1347dfe1bac24948f43104e7a08a10",
+    "status_porcelain_at_freeze": "M .gitignore\n M README.md\n M docs/DECISIONS.md\n M docs/RESULTS_INDEX.md\n?? artifacts/final_protocol/\n?? configs/final_protocol.json\n?? docs/FINAL_TEST_PROTOCOL.md\n?? scripts/freeze_development.py\n?? tests/test_final_protocol.py",
+    "source_state": "base commit plus SHA256 snapshot of current source/config/docs; no commit made"
+  },
+  "split": {
+    "counts": {
+      "cohort": {
+        "total": 823,
+        "positive": 248,
+        "negative": 575
+      },
+      "development": {
+        "total": 658,
+        "positive": 198,
+        "negative": 460
+      },
+      "test": {
+        "total": 165,
+        "positive": 50,
+        "negative": 115
+      },
+      "folds": [
+        {
+          "fold": 0,
+          "training": {
+            "total": 493,
+            "positive": 148,
+            "negative": 345
+          },
+          "validation": {
+            "total": 165,
+            "positive": 50,
+            "negative": 115
+          }
+        },
+        {
+          "fold": 1,
+          "training": {
+            "total": 493,
+            "positive": 148,
+            "negative": 345
+          },
+          "validation": {
+            "total": 165,
+            "positive": 50,
+            "negative": 115
+          }
+        },
+        {
+          "fold": 2,
+          "training": {
+            "total": 494,
+            "positive": 149,
+            "negative": 345
+          },
+          "validation": {
+            "total": 164,
+            "positive": 49,
+            "negative": 115
+          }
+        },
+        {
+          "fold": 3,
+          "training": {
+            "total": 494,
+            "positive": 149,
+            "negative": 345
+          },
+          "validation": {
+            "total": 164,
+            "positive": 49,
+            "negative": 115
+          }
+        }
+      ]
+    },
+    "limitation": "Case-level stratification only. Authoritative patient identifiers and reliable lesion linkage are unavailable; patient-level independence cannot be verified. case_num identifies a case, not a patient, and does not provide patient-level protection.",
+    "metadata_path": "data/splits/split_metadata.json",
+    "metadata_sha256": "b44ba9321d26caed0b0515d57211781a43fd5767fff89aeafa6159713965b612",
+    "cohort_sha256": "154a65609d7f0df9e880c8a08ec98270f3f4d77fe3273c8e040dcf99b5a03931",
+    "file_sha256": {
+      "development_ids.csv": "8a26426cafd4df776b75e2fb2ae4797a38300f6e28596d4c9cbbf678ebc13e52",
+      "test_ids.csv": "d81a84bf8eb9ff1a64268d22b0faa89e4ad95e2eebc5dd08f62dda630192104c",
+      "development_folds.csv": "6c8d835d2805a4382e2c95ca9b880239d69d905eb718f8445ac7b318fdff87aa"
+    },
+    "hash_evidence": "cohort, test IDs and fold hashes copied from frozen split metadata; development IDs verified; cohort/test IDs not opened"
+  },
+  "checkpoints": {
+    "black_box": [
+      {
+        "fold": 0,
+        "epoch": 15,
+        "expected_path_relative_to_drive_outputs": "checkpoints/baseline/baseline-v1/fold_0/best.pt",
+        "binary_sha256": null,
+        "binary_verified": false,
+        "selection_evidence": "user-frozen epochs; local baseline run unavailable"
+      },
+      {
+        "fold": 1,
+        "epoch": 9,
+        "expected_path_relative_to_drive_outputs": "checkpoints/baseline/baseline-v1/fold_1/best.pt",
+        "binary_sha256": null,
+        "binary_verified": false,
+        "selection_evidence": "user-frozen epochs; local baseline run unavailable"
+      },
+      {
+        "fold": 2,
+        "epoch": 21,
+        "expected_path_relative_to_drive_outputs": "checkpoints/baseline/baseline-v1/fold_2/best.pt",
+        "binary_sha256": null,
+        "binary_verified": false,
+        "selection_evidence": "user-frozen epochs; local baseline run unavailable"
+      },
+      {
+        "fold": 3,
+        "epoch": 10,
+        "expected_path_relative_to_drive_outputs": "checkpoints/baseline/baseline-v1/fold_3/best.pt",
+        "binary_sha256": null,
+        "binary_verified": false,
+        "selection_evidence": "user-frozen epochs; local baseline run unavailable"
+      }
+    ],
+    "seven_concept": [
+      {
+        "fold": 0,
+        "epoch": 19,
+        "expected_path_relative_to_drive_outputs": "checkpoints/seven_concept/seven-concept-v1/fold_0/best.pt",
+        "binary_sha256": null,
+        "binary_verified": false,
+        "selection_evidence": "artifacts/seven-concept-v1-20260924T041739Z-1-001/seven-concept-v1/fold_0/summary.json",
+        "reported_drive_path": null
+      },
+      {
+        "fold": 1,
+        "epoch": 18,
+        "expected_path_relative_to_drive_outputs": "checkpoints/seven_concept/seven-concept-v1/fold_1/best.pt",
+        "binary_sha256": null,
+        "binary_verified": false,
+        "selection_evidence": "artifacts/seven-concept-v1-20260924T041739Z-1-001/seven-concept-v1/fold_1/summary.json",
+        "reported_drive_path": null
+      },
+      {
+        "fold": 2,
+        "epoch": 16,
+        "expected_path_relative_to_drive_outputs": "checkpoints/seven_concept/seven-concept-v1/fold_2/best.pt",
+        "binary_sha256": null,
+        "binary_verified": false,
+        "selection_evidence": "artifacts/seven-concept-v1-20260924T041739Z-1-001/seven-concept-v1/fold_2/summary.json",
+        "reported_drive_path": null
+      },
+      {
+        "fold": 3,
+        "epoch": 30,
+        "expected_path_relative_to_drive_outputs": "checkpoints/seven_concept/seven-concept-v1/fold_3/best.pt",
+        "binary_sha256": null,
+        "binary_verified": false,
+        "selection_evidence": "artifacts/seven-concept-v1-20260924T041739Z-1-001/seven-concept-v1/fold_3/summary.json",
+        "reported_drive_path": null
+      }
+    ],
+    "joint_soft": [
+      {
+        "fold": 0,
+        "epoch": 13,
+        "expected_path_relative_to_drive_outputs": "checkpoints/joint_soft/joint-soft-v1/fold_0/best.pt",
+        "binary_sha256": null,
+        "binary_verified": false,
+        "selection_evidence": "artifacts/joint_soft/joint-soft-v1/fold_0/summary.json",
+        "reported_drive_path": "/content/drive/MyDrive/Explanable_AI/faithful-cbm/outputs/checkpoints/joint_soft/joint-soft-v1/fold_0/best.pt"
+      },
+      {
+        "fold": 1,
+        "epoch": 15,
+        "expected_path_relative_to_drive_outputs": "checkpoints/joint_soft/joint-soft-v1/fold_1/best.pt",
+        "binary_sha256": null,
+        "binary_verified": false,
+        "selection_evidence": "artifacts/joint_soft/joint-soft-v1/fold_1/summary.json",
+        "reported_drive_path": "/content/drive/MyDrive/Explanable_AI/faithful-cbm/outputs/checkpoints/joint_soft/joint-soft-v1/fold_1/best.pt"
+      },
+      {
+        "fold": 2,
+        "epoch": 16,
+        "expected_path_relative_to_drive_outputs": "checkpoints/joint_soft/joint-soft-v1/fold_2/best.pt",
+        "binary_sha256": null,
+        "binary_verified": false,
+        "selection_evidence": "artifacts/joint_soft/joint-soft-v1/fold_2/summary.json",
+        "reported_drive_path": "/content/drive/MyDrive/Explanable_AI/faithful-cbm/outputs/checkpoints/joint_soft/joint-soft-v1/fold_2/best.pt"
+      },
+      {
+        "fold": 3,
+        "epoch": 14,
+        "expected_path_relative_to_drive_outputs": "checkpoints/joint_soft/joint-soft-v1/fold_3/best.pt",
+        "binary_sha256": null,
+        "binary_verified": false,
+        "selection_evidence": "artifacts/joint_soft/joint-soft-v1/fold_3/summary.json",
+        "reported_drive_path": "/content/drive/MyDrive/Explanable_AI/faithful-cbm/outputs/checkpoints/joint_soft/joint-soft-v1/fold_3/best.pt"
+      }
+    ],
+    "joint_hard_ste": [
+      {
+        "fold": 0,
+        "epoch": 6,
+        "expected_path_relative_to_drive_outputs": "checkpoints/joint_hard/joint-hard-v1/fold_0/best.pt",
+        "binary_sha256": null,
+        "binary_verified": false,
+        "selection_evidence": "artifacts/joint_hard/joint-hard-v1/fold_0/summary.json",
+        "reported_drive_path": "/content/drive/MyDrive/Explanable_AI/faithful-cbm/outputs/checkpoints/joint_hard/joint-hard-v1/fold_0/best.pt"
+      },
+      {
+        "fold": 1,
+        "epoch": 18,
+        "expected_path_relative_to_drive_outputs": "checkpoints/joint_hard/joint-hard-v1/fold_1/best.pt",
+        "binary_sha256": null,
+        "binary_verified": false,
+        "selection_evidence": "artifacts/joint_hard/joint-hard-v1/fold_1/summary.json",
+        "reported_drive_path": "/content/drive/MyDrive/Explanable_AI/faithful-cbm/outputs/checkpoints/joint_hard/joint-hard-v1/fold_1/best.pt"
+      },
+      {
+        "fold": 2,
+        "epoch": 14,
+        "expected_path_relative_to_drive_outputs": "checkpoints/joint_hard/joint-hard-v1/fold_2/best.pt",
+        "binary_sha256": null,
+        "binary_verified": false,
+        "selection_evidence": "artifacts/joint_hard/joint-hard-v1/fold_2/summary.json",
+        "reported_drive_path": "/content/drive/MyDrive/Explanable_AI/faithful-cbm/outputs/checkpoints/joint_hard/joint-hard-v1/fold_2/best.pt"
+      },
+      {
+        "fold": 3,
+        "epoch": 16,
+        "expected_path_relative_to_drive_outputs": "checkpoints/joint_hard/joint-hard-v1/fold_3/best.pt",
+        "binary_sha256": null,
+        "binary_verified": false,
+        "selection_evidence": "artifacts/joint_hard/joint-hard-v1/fold_3/summary.json",
+        "reported_drive_path": "/content/drive/MyDrive/Explanable_AI/faithful-cbm/outputs/checkpoints/joint_hard/joint-hard-v1/fold_3/best.pt"
+      }
+    ]
+  },
+  "full_development_heads": {
+    "sequential_soft": {
+      "path": "artifacts/cbm/sequential_soft/full_development_model.json",
+      "sha256": "4120c496059a90f05bf84de3210e53680986248e799a7a5a27a03d0e24dc37eb",
+      "label": "FULL-DEVELOPMENT SOFT CBM HEAD",
+      "training_cases": 658,
+      "feature_columns": [
+        "atypical_pigment_network_probability",
+        "regression_structures_present_probability",
+        "irregular_pigmentation_probability",
+        "blue_whitish_veil_present_probability",
+        "atypical_vascular_structures_probability",
+        "irregular_dots_and_globules_probability",
+        "irregular_streaks_probability"
+      ]
+    },
+    "sequential_hard": {
+      "path": "artifacts/cbm/sequential_hard/full_development_model.json",
+      "sha256": "5c30b59f37f719dac68fd496a090d1c5e326e2033bb095cc78e1fc6bff406525",
+      "label": "FULL-DEVELOPMENT HARD CBM HEAD",
+      "training_cases": 658,
+      "feature_columns": [
+        "atypical_pigment_network_hard",
+        "regression_structures_present_hard",
+        "irregular_pigmentation_hard",
+        "blue_whitish_veil_present_hard",
+        "atypical_vascular_structures_hard",
+        "irregular_dots_and_globules_hard",
+        "irregular_streaks_hard"
+      ]
+    },
+    "oracle": {
+      "path": "artifacts/cbm/oracle/full_development_model.json",
+      "sha256": "152cb5c8a3de39eff8b428367ca9c18774e75cbe6848bd79dd6ff94dd7624eac",
+      "label": "FULL-DEVELOPMENT ORACLE CONCEPT HEAD",
+      "training_cases": 658,
+      "feature_columns": [
+        "atypical_pigment_network_target",
+        "regression_structures_present_target",
+        "irregular_pigmentation_target",
+        "blue_whitish_veil_present_target",
+        "atypical_vascular_structures_target",
+        "irregular_dots_and_globules_target",
+        "irregular_streaks_target"
+      ]
+    }
+  },
+  "model_metadata_sha256": {
+    "artifacts/cbm/sequential_soft/full_development_model.json": "4120c496059a90f05bf84de3210e53680986248e799a7a5a27a03d0e24dc37eb",
+    "artifacts/cbm/sequential_hard/full_development_model.json": "5c30b59f37f719dac68fd496a090d1c5e326e2033bb095cc78e1fc6bff406525",
+    "artifacts/cbm/oracle/full_development_model.json": "152cb5c8a3de39eff8b428367ca9c18774e75cbe6848bd79dd6ff94dd7624eac",
+    "artifacts/seven-concept-v1-20260924T041739Z-1-001/seven-concept-v1/fold_0/summary.json": "3d0cd5318e2cbef7c2d19e98f352a660b6d4164d1ecbb88bb8cd29991aa412f7",
+    "artifacts/seven-concept-v1-20260924T041739Z-1-001/seven-concept-v1/fold_0/run.json": "badd3b8f4b60a8cdf42b95bf99f08e5a2191a35396e950f1b680ac1146c38017",
+    "artifacts/seven-concept-v1-20260924T041739Z-1-001/seven-concept-v1/fold_1/summary.json": "2c9c1f0be0c9459096960511eba1636b9b71cb96be144cdc1f38faf71efcb36a",
+    "artifacts/seven-concept-v1-20260924T041739Z-1-001/seven-concept-v1/fold_1/run.json": "2ae34fccc3f253d9fb95fb3a0b4a41c941eb5bfa639fa2bb00935511ab74ea8c",
+    "artifacts/seven-concept-v1-20260924T041739Z-1-001/seven-concept-v1/fold_2/summary.json": "53014f44013eaf48d39762135252daad87208e9a9faabf824e4d9cc0e9062a14",
+    "artifacts/seven-concept-v1-20260924T041739Z-1-001/seven-concept-v1/fold_2/run.json": "1e1ed56a5dd97d2bfe2bf2f79ebed3be9e8e62b568e1f3d2bdd69357fc67a0a5",
+    "artifacts/seven-concept-v1-20260924T041739Z-1-001/seven-concept-v1/fold_3/summary.json": "1e421ae4bf9ed49033632dda358d62cbaf9b42a54b78b24b34bd0b87fb86da58",
+    "artifacts/seven-concept-v1-20260924T041739Z-1-001/seven-concept-v1/fold_3/run.json": "c22eca4a1b6e1b347168198bf8dbef350e15df05f24588924f325b40fc668eed",
+    "artifacts/joint_soft/joint-soft-v1/fold_0/summary.json": "f1a06bc3a286757dbc3eb4e64221788eeae2a84758aaa353bb6e1e13058e00db",
+    "artifacts/joint_soft/joint-soft-v1/fold_0/run.json": "d5049aab011eb26e42cdff92f9b958d8d427e66d99814cc3668aef037b378d67",
+    "artifacts/joint_soft/joint-soft-v1/fold_1/summary.json": "50c0faccfaf19b57e5fa814006576d8385f2ec681a031129e859f9b4c425a7be",
+    "artifacts/joint_soft/joint-soft-v1/fold_1/run.json": "40a54937ebf6d6ed3bde5604b86798569c2c1ece0a9df0ea4410a7c1d2be81af",
+    "artifacts/joint_soft/joint-soft-v1/fold_2/summary.json": "29544095f04d398a34709aac1968a8d8587725f7ea614e5842dc7d6941a5a52e",
+    "artifacts/joint_soft/joint-soft-v1/fold_2/run.json": "62b7112b3dcfde7e8138515702338d6a7b27bbdeef920838f0826a76da3643de",
+    "artifacts/joint_soft/joint-soft-v1/fold_3/summary.json": "7e3d915060c3136cc88dfb3f18b8664acb942014d11cbf19e44a402d3fa33f2b",
+    "artifacts/joint_soft/joint-soft-v1/fold_3/run.json": "94768595507498e8094ecb8ac12ff830c23b025edeb9b5958d737757cd2fb76d",
+    "artifacts/joint_hard/joint-hard-v1/fold_0/summary.json": "1f0ea83b4d111926913ac9ff8a0ea6ce8fe8900574a60abde1775869e5c7c412",
+    "artifacts/joint_hard/joint-hard-v1/fold_0/run.json": "da0b90b3635db52e2b8b98254783026dcbbf32df93fa81191090cef653cadcf4",
+    "artifacts/joint_hard/joint-hard-v1/fold_1/summary.json": "6ca63d219803fbca9d21ac881f1a46a03a1e16b4708a60686d20031b024bb99f",
+    "artifacts/joint_hard/joint-hard-v1/fold_1/run.json": "12d58ab08a0650c4c06a7ae56a089ac1fa21c663f34ab150b3f359d8e986eca3",
+    "artifacts/joint_hard/joint-hard-v1/fold_2/summary.json": "0c476d9907b371272e55b83a2d812e9ce47aefd50073a5c143b475a3bb600a00",
+    "artifacts/joint_hard/joint-hard-v1/fold_2/run.json": "5b163e97b0dbec05209094f1b2538fd4a3f3ccaa44be6c83889138371b7a5432",
+    "artifacts/joint_hard/joint-hard-v1/fold_3/summary.json": "46c76e2f757fbe8b9c422c4471ddea0c8698a6abfb055ade4b11900c06c07e1f",
+    "artifacts/joint_hard/joint-hard-v1/fold_3/run.json": "703602a0082166eeed4696e1423e3290ec73904b853124a84ec5305ccd3f11d0"
+  },
+  "source_config_docs_sha256": {
+    ".gitattributes": "73fa4c3c4aafe196ddc0562bc7662e803ff08e9b80f669662e8436b28be150cc",
+    ".gitignore": "9d87f61beee6f2eb3e4dbc98509492a8e121232a50073a8a43ffc7cb1d6d2bb5",
+    "AGENTS.md": "50a25208acaf57d371034675364cb98fbe7bae6dcb00d328881c4e71e9aa36f0",
+    "README.md": "7d9003328390e2afaad6df3a5871fed996c8ae384c0bad29864083912787d761",
+    "configs/binary_cbm.json": "606a67e9bde9897fe81983237f5811cf3853b95f47481ca728de2de69fd557c7",
+    "configs/cohort_mapping.json": "a537122a5f8a052d374716d4b1116d2e02bbc13f17f33cb08d7a56e19e3dac47",
+    "configs/concept_sanity.toml": "846202f2f3cc1c559c0d3d8ccb7981608ce4fad547df4325f33529875a67cfe2",
+    "configs/default.toml": "2f0ddbc2b32cf044c6791544f7f37731258db6e28020d95793acb09a624e097f",
+    "configs/final_protocol.json": "9f85f7194fec2deb4a3dfc06108693287e70525c67d95273b2b2e52aceb22b78",
+    "configs/intervention_engine.json": "9786e7517387a3c3459e2cb5894e54c3cf77b2dc39f169df997047c53c31c3a2",
+    "configs/intervention_policies.json": "a9c6c2fe584b33c58eebb3c3db9ef60c2d4b52dad738e0f837a923aaf2c6a58a",
+    "configs/joint_hard.toml": "a53692dcc831a44d27ae3ae2b0af560073180b426df02859d8d8d0dee60938db",
+    "configs/joint_oof.json": "1602e19d56181072c737caffb1025cdebaa7781fcb7262eb8c70f7357f8cfe9e",
+    "configs/joint_soft.toml": "7686befb8bf49c4caf3b680cc1c209da1fc5418eff8c2ea092e8fb66aab41478",
+    "configs/sequential_soft.json": "3ef568a742663e481e53234041edd341dd1bc6f94d60eba9bfa3091b1c072d70",
+    "configs/seven_concept.toml": "fab743bb0dd10fc6ba2f65e81616cdb75c975ebcda520255af9755842e089ba0",
+    "docs/BASELINE_GPU.md": "49d9d0e1043fb9c43a6053638e4bca4c6b6500498b5a7f5fb37a9e9e6e56f271",
+    "docs/CONCEPT_SANITY_GPU.md": "0d7680dcff1ec4d87b6011f222b26a545d93a60b32daca233c744d0af34defc3",
+    "docs/DECISIONS.md": "d6bf7fcb60303a00ede84354e2178dfcdc7b6235e74ec62bc18d3770701f8d6c",
+    "docs/FINAL_TEST_PROTOCOL.md": "1e3f00ac1a701ff29101a61b24550a8472237711197a1cbae51b1f44c11b16be",
+    "docs/HARD_ORACLE_CBM.md": "33e064cd9b38ee2b1ce41dfb72507bf61d29afe0c1d8fccf13c64857725cc3d2",
+    "docs/INTERVENTION_ENGINE.md": "7df2b2cd452a6b6acde4f0c7f6d8ea599ac7729d7ac4b3dab159e2a3ce94ba71",
+    "docs/INTERVENTION_POLICIES.md": "f7e6a701f3362fb3a163dcf9e9453eebdfd9f46b4cf412a6efda40619ddc0c64",
+    "docs/JOINT_CBM_GPU.md": "7f2319e4962a690110e46ca7cd7892cd7f30989325a3b2372cc80fe2ad4ef559",
+    "docs/JOINT_OOF_COMPARISON.md": "cc165eb2e31b200a75529a69a687758ae747ee8fe9724d6bd912338211f01523",
+    "docs/OOF_ASSEMBLY.md": "da55892893556a3cf0c8d6d7adcc8163c75c42937564ef065d302788023e37b9",
+    "docs/PROJECT_SPEC.md": "aa455bc6e1940fdb9b68c6c08298b19290736f60c2e4d892665243f3498697eb",
+    "docs/RESULTS_INDEX.md": "ee3ad3fb82226e0744007e42bc8777bc6d26848cabf02d8d5b0fcc8c6879827c",
+    "docs/SEQUENTIAL_SOFT_CBM.md": "27c63355f54e73c35a0b611e5c2ea8d8a836b4f958fbb42fc54502a3e8b9dea0",
+    "docs/SEVEN_CONCEPT_GPU.md": "96be9766b3f5055b8a8e00c3522b7ba0ef9bd64d5ee4f33960636b6bd4e2dd9d",
+    "docs/artifact_organization_inventory.json": "da9347cbc84525ec359d7943c8766561aed36f132c4aad34687a61b334dac177",
+    "docs/colab_fold0.py": "8c6f6c7fe9ff76e2cbeb6c830004b67ab811e558d80b549429435d1d51e50ab3",
+    "docs/colab_fold0_manifest.json": "ac46b6955b29042c9f27b215372983bbd7c6c10e794cc93f260d9607dcff1b35",
+    "docs/concept_sanity_preflight.json": "c7d39d30750f02738644ed44e1f734be474065dc1184333cb7b7997ca7529b9a",
+    "docs/joint_preflight.json": "d04f9d360677dff31e1f515b5461873d8e8ef031cd6e2846c0ebf7df421c0b96",
+    "docs/seven_concept_preflight.json": "3698c933d466ad12c6e31d29296a4ab118a6cb8f91cf8002e8dff350bd596d7e",
+    "pyproject.toml": "1c2551e0b9d2ddd722eefe3443068749c33e57d19babd23ec67fbf6a65f999c3",
+    "requirements.txt": "930a374ce7cc38c251584c17384fa2d9445edbe0909d5a6e4caa50e6745f2933",
+    "scripts/freeze_development.py": "68b1261f22c43ff5e089d9920441e13a1402df91327d6ca7d1f9058a85e08f81",
+    "scripts/report_environment.py": "563c9a2d01904e8ca6ab882283ade3ffb173dc29e7246093151ff895f753a271",
+    "src/data/__init__.py": "9a24a517a40f96c4b7fbcfbd82b69954f34009cb807485a522e7d25b6318ef71",
+    "src/data/audit.py": "784b4fb7d7be780c547fb6c93f836896ece79e603ae0832a15df8f38a57b58dc",
+    "src/data/cohort.py": "b2b40a06045d964668a8622ee7f84ab4b658ad3bdddf85d2bd9639982c2bb593",
+    "src/data/splitting.py": "0a346df3b66e788013a365fd2974c2ddce47f4e2195bdbc8040f4877ba0885c9",
+    "src/faithful_medical_cbm/__init__.py": "fd697f25546a8c83ccdf5a28ae32effed3d71fca5c96df5cf54ae9b755a04871",
+    "src/faithful_medical_cbm/config.py": "e6623ef619a2c950bb3a8252808c09bc533aebbfcc595483881340e7f62f2ab9",
+    "src/faithful_medical_cbm/data/__init__.py": "8114b2f8dee5c50c2f87dc97252593e3846a94fa734158082ecd9ffe1b06f9ed",
+    "src/faithful_medical_cbm/data/dataset.py": "d85ab12842bcdf9ce4ce7f7191e6011fa06a7601603161e6f08fe3b1fa0856e8",
+    "src/faithful_medical_cbm/data/loaders.py": "9c0820b1e33a5aedac3f7289b3739f1ba23f3daef98beb1b250255ecc58cf053",
+    "src/faithful_medical_cbm/data/transforms.py": "7e994b3e3eb4b6876bce8b1598f05a58f2a42bd4857bcf09eb473161251115a6",
+    "src/faithful_medical_cbm/evaluation/__init__.py": "9710523db147dfcf16bbbd96b16cfae508582e128b9a1e25ac898d193029f287",
+    "src/faithful_medical_cbm/evaluation/assemble_oof.py": "633bd1c2169a1c5804e54c8aa681f0a9a10a6be2ac1c6ac35a2f997944ba0d66",
+    "src/faithful_medical_cbm/evaluation/diagnosis_metrics.py": "53e4a1eb97493b9568b71a5e4556ef4bf3a02a0b220b0d17857ad2f9f55fc8c4",
+    "src/faithful_medical_cbm/evaluation/joint_oof.py": "bdf2e776d48c728f09f0d8870a669655a9152acaf46ce171923736ada638226d",
+    "src/faithful_medical_cbm/interventions/__init__.py": "9710523db147dfcf16bbbd96b16cfae508582e128b9a1e25ac898d193029f287",
+    "src/faithful_medical_cbm/interventions/build_engine_artifacts.py": "ec571db9dca6fd1ee89d49cc272bdb378ed7251c37370f4aed3fe8d8a51a6866",
+    "src/faithful_medical_cbm/interventions/engine.py": "d233e75353e37172b5f26d6d696feb21c7dc440bdd39aca3b98eb7ebd121701f",
+    "src/faithful_medical_cbm/interventions/policies.py": "15cc01b845decd7f9430bf5693018afbfec8a437b7d13563f69227fcba2ea643",
+    "src/faithful_medical_cbm/interventions/run_policies.py": "5728cb34b9b645c0e5ed74147d1085de15706a206905974137e79af4e9cd4c01",
+    "src/faithful_medical_cbm/models/__init__.py": "f34454b75b93ec8a3965e724922b6203f791e37237410b59d87beb2b48c4b4f2",
+    "src/faithful_medical_cbm/models/binary_cbm.py": "15759e735f6e3c417bb5c2cf8f391d03c2da7e069ba0811bde1e68895f76bd0e",
+    "src/faithful_medical_cbm/models/black_box.py": "1a78e2c0342e2ce870c1e1a5ad2bb7a2d81332a1f3da5dfa5bda5502d9d9c451",
+    "src/faithful_medical_cbm/models/concept.py": "5463d03fd5d393034b62d11dfd4a124772e5b052bc8ff2a8e3f64e26e6f2ae8e",
+    "src/faithful_medical_cbm/models/joint_cbm.py": "420eac2e42d58ea3dd815959a2fd1de4043a3c24cbc6cfa14099cd3b5264ab4d",
+    "src/faithful_medical_cbm/models/seven_concept.py": "d6b03e5719009f68639c7914cb50115f47bb678bfbd08eae430e154647a0a358",
+    "src/faithful_medical_cbm/models/soft_cbm.py": "306e54fe4f2ca6e16649032240ecb9a1181508737d8fa0ed978a96582c402a7a",
+    "src/faithful_medical_cbm/reproducibility.py": "a406058c9e84e0306a759789b01d77665fe6a27c13365f6c764e2ced5b9a6c7c",
+    "src/faithful_medical_cbm/training/__init__.py": "95f8205402bbcb46d0320045f054e126579c8f06f16b5c80eeb03dc700dc04bc",
+    "src/faithful_medical_cbm/training/baseline.py": "0ce5db27e36a04c723f2cca19c9fee95de5e48e13355162010943d0e70482171",
+    "src/faithful_medical_cbm/training/concept.py": "95be0653a13b0bd7b5ba4af0423d37cc1165340d6279986afebeba0ceaf56a5c",
+    "src/faithful_medical_cbm/training/joint_cbm.py": "fdd140a5dedf64fb533249f54055afe07685f795961889da20d49e1a70461294",
+    "src/faithful_medical_cbm/training/seven_concept.py": "b9638155323671637aaf1d79baa59da854b6802869583749cfab09c49dccf84b",
+    "src/faithful_medical_cbm/training/train_binary_cbm.py": "8e7b610571a94d49a157d7983b6cf6004b9f790db8c15514a5083d269834b8a3",
+    "src/faithful_medical_cbm/training/train_black_box.py": "d1717496d9ccbdc9e20d47cd21f37538b8160e40f24aa255c9e31d3d1022c9c6",
+    "src/faithful_medical_cbm/training/train_concept.py": "8d406796af1b9c5a6c60fb244e81e14bd3d0ce01f9aa9ab69c16bf3ae7c3973c",
+    "src/faithful_medical_cbm/training/train_joint.py": "e22c190255f312a87ac543f1187357ac559ed51419e6b26eda9b051981aadd59",
+    "src/faithful_medical_cbm/training/train_sequential_soft.py": "bcdc78e15977a822db89b5b4da7e1f6f5b34eb9e230e059450ce699ff2b95542",
+    "src/faithful_medical_cbm/training/train_seven_concept.py": "bec2d9327e2d2818e0dd7d3cc565c2c47d7e3b085fc47c9db4cfcb5bdfe7017e",
+    "tests/test_baseline.py": "e60ac5fdf9b4eb43770aa891da055cc84c27680b98cc088d01d65e983e649d85",
+    "tests/test_binary_cbm.py": "04bca5c06a9a91376a8fb655074d2331b95c20d5b79f093f495ad9a509426b09",
+    "tests/test_cohort.py": "886a9d18a07c1ac8a72e66dcb5e8fc565fbb277f99733b328119b73b12fcadf6",
+    "tests/test_colab_workflow.py": "6d4af3889ceb5ed79d99bfd94f6378dfb0be6c685f8344320bad51ab30ae05dc",
+    "tests/test_concept.py": "b6457077e678d46b1e73cf5a471de7b94decb32ece449ebc6bf091ba10d1e504",
+    "tests/test_data_loading.py": "2dbcfab89952aa79e4eeb1012dd7b88dc8e85815815fd6136d65218188ed4ab2",
+    "tests/test_dataset_audit.py": "954f4b5bb4f269d1bf9bf55f973855236bc29666bff31e7d214351c4616362d3",
+    "tests/test_final_protocol.py": "f1cde16a1ca1108b2065283fb772377a935d4945e98e397ae65c35b38e161a66",
+    "tests/test_initialization.py": "7158987791494a7a2838d81fe071f4505078560cf66495ede10d6706bc0d23b8",
+    "tests/test_intervention_engine.py": "db4f4ccfddc51b1281ea10b22e7da51e4532890b3415e97a83e3a116c06d5ca5",
+    "tests/test_intervention_policies.py": "423bfcf96166de393bd7ef055b46577794552f18537c30055a5ee1a70f12e989",
+    "tests/test_joint_cbm.py": "fbe5b6d962971c110153159c9d5877f08b1aa827dc3d1b183e90482b3a138de2",
+    "tests/test_joint_oof.py": "ea39664bb42e87ce54c9a28deef6813f54ca18c461be9d506d05a69df11c4e9d",
+    "tests/test_oof.py": "6d3a4d2f22cf196beb2d52b040f1aa7c3767857df89f1844ca4e1bd4b0eb28d1",
+    "tests/test_sequential_soft.py": "d178894351308c70940977a7d053cfd687eeb6eb3b617124b7b4d33bd7fc7419",
+    "tests/test_seven_concept.py": "0dd8c9142630ee4bfbfc3a6183cae67d5e594dfb6fa5c821c6bdf12142a5b202",
+    "tests/test_splitting.py": "40b826b7ddbc2c2b44b7649346a3f756d5da35cbbcd85a3ad23f61207e78bc11"
+  },
+  "hash_algorithm": "SHA256 of exact file bytes; manifest itself excluded",
+  "safety": {
+    "final_output_namespaces_absent": [
+      "artifacts/final_test",
+      "artifacts/locked_test",
+      "artifacts/test_evaluation"
+    ],
+    "scope": "metadata-only; no images, cohort rows, test IDs, checkpoints, loaders, inference or metrics read/executed"
+  },
+  "blockers": [
+    "Verify all 16 Drive checkpoint binaries against frozen epochs, fold/run/model/order/config and training provenance; record binary hashes in a separate pre-execution attestation before test exposure.",
+    "Baseline source run metadata not locally available; verify it on Drive with epochs 15/9/21/10.",
+    "Final-test executor is not implemented or authorized by Stage 14; validate it offline against this frozen protocol before separately authorized execution."
+  ]
+}
